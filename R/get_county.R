@@ -3,12 +3,12 @@ get_county <- function(county_code) {
                                       package = "rocnp")
 
     county_lut <- readr::read_csv(county_lookup_file,
-                                  col_types = cols(
-                                      code = col_character(),
-                                      county = col_character()
+                                  col_types = readr::cols(
+                                      code = readr::col_character(),
+                                      county = readr::col_character()
                                   ))
 
     county_lut %>%
-        filter(code == county_code) %>%
-        pull(county)
+        dplyr::filter(.data$code == county_code) %>%
+        dplyr::pull(.data$county)
 }

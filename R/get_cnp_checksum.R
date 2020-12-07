@@ -1,5 +1,5 @@
 get_cnp_checksum <- function(cnp) {
-    dec_cnp <- str_extract_all(as.character(cnp), "[0-9]") %>%
+    dec_cnp <- stringr::str_extract_all(as.character(cnp), "[0-9]") %>%
         unlist()
 
     mult_cnp <- as.integer(dec_cnp[1:12]) *

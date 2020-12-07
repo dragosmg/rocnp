@@ -16,19 +16,19 @@ interpret_cnp <- function(cnp, lang = c("RO", "EN")) {
 
     # build the year based on the gender encoding
     if (cnp_dec['S'] %in% c(1, 2)) {
-        yob <- str_c(19, cnp_dec["AA"]) %>% as.integer()
+        yob <- stringr::str_c(19, cnp_dec["AA"]) %>% as.integer()
     }
 
     if (cnp_dec['S'] %in% c(3, 4)) {
-        yob <- str_c(18, cnp_dec["AA"]) %>% as.integer()
+        yob <- stringr::str_c(18, cnp_dec["AA"]) %>% as.integer()
     }
 
     if (cnp_dec['S'] %in% c(5, 6)) {
-        yob <- str_c(20, cnp_dec["AA"])  %>% as.integer()
+        yob <- stringr::str_c(20, cnp_dec["AA"])  %>% as.integer()
     }
 
     if (cnp_dec['S'] %in% c(7, 8)) {
-        yob <- str_c("__", cnp_dec["AA"]) %>% as.integer()
+        yob <- stringr::str_c("__", cnp_dec["AA"]) %>% as.integer()
     }
 
     county <- cnp_dec['JJ'] %>%
@@ -40,6 +40,8 @@ interpret_cnp <- function(cnp, lang = c("RO", "EN")) {
                              {gender_ro}, nascuta pe data de {cnp_dec['ZZ']} //
                              {month_name_ro[cnp_dec['LL']]} {yob} in judetul //
                              {county}")
+
+        return(result)
     }
 
 
