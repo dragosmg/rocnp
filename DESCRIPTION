@@ -1,5 +1,5 @@
 Package: rocnp
-Title: What the Package Does (One Line, Title Case)
+Title: Tools for Working with Romanian Personal Numeric Codes PNC / CNP
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Dragoș",
