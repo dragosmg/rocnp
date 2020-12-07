@@ -1,0 +1,14 @@
+Package: rocnp
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Dragoș",
+           family = "Moldovan-Grünfeld",
+           role = c("aut", "cre"),
+           email = "dragos.mold@gmail.com")
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
