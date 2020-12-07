@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/dragosmg/rocnp/workflows/R-CMD-check/badge.svg)](https://github.com/dragosmg/rocnp/actions)
 <!-- badges: end -->
 
 The goal of rocnp is to …
