@@ -17,6 +17,8 @@ Imports:
     dplyr,
     glue,
     magrittr,
+    readr,
+    rlang,
     stringr
 Encoding: UTF-8
 LazyData: true
