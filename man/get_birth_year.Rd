@@ -4,14 +4,18 @@
 \alias{get_birth_year}
 \title{Extract Birth Year from the Personal Numeric Code}
 \usage{
-get_birth_year(cnp_dec)
+get_birth_year(cnp_dec, lang = c("RO", "EN"))
 }
 \arguments{
 \item{cnp_dec}{a named character vector representing a decomposed Personal
 Numeric Code}
+
+\item{lang}{a string denoting the language for the interpretation - either
+\code{RO} for Romanian (the default) or \code{EN} for English.}
 }
 \value{
-an integer of length 1 representing the year of birth
+an string representing the year of birth or the possible years (in
+the case of residents)
 }
 \description{
 This function infers the year of birth based on the code for gender - which
