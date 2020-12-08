@@ -1,4 +1,6 @@
-get_county <- function(county_code) {
+get_county <- function(cnp_dec) {
+    county_code <- cnp_dec["JJ"]
+
     county_lookup_file <- system.file("extdata", "county_lookup.csv",
                                       package = "rocnp")
 

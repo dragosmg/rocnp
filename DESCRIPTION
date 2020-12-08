@@ -1,7 +1,7 @@
 Package: rocnp
 Title: Tools for Working with Romanian Personal Numeric Codes
     PNC / CNP
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Dragoș",
            family = "Moldovan-Grünfeld",
@@ -16,10 +16,14 @@ Depends:
 Imports: 
     dplyr,
     glue,
+    lubridate,
     magrittr,
     readr,
     rlang,
     stringr
+Suggests: 
+    covr,
+    testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

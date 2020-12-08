@@ -7,6 +7,10 @@
 
 [![R build
 status](https://github.com/dragosmg/rocnp/workflows/R-CMD-check/badge.svg)](https://github.com/dragosmg/rocnp/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/dragosmg/rocnp/branch/main/graph/badge.svg)](https://codecov.io/gh/dragosmg/rocnp?branch=main)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The goal of rocnp is to …
