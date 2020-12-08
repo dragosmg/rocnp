@@ -7,6 +7,8 @@
 
 [![R build
 status](https://github.com/dragosmg/rocnp/workflows/R-CMD-check/badge.svg)](https://github.com/dragosmg/rocnp/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/dragosmg/rocnp/branch/master/graph/badge.svg)](https://codecov.io/gh/dragosmg/rocnp?branch=master)
 <!-- badges: end -->
 
 The goal of rocnp is to …
