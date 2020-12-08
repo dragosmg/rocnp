@@ -1,0 +1,3 @@
+linters: with_defaults(
+   cyclocomp_linter = cyclocomp_linter(16)
+ )
