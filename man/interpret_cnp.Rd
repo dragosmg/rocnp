@@ -26,5 +26,6 @@ This function offers a verbose interpretation of the Personal Numeric Code.
 interpret_cnp(6201206018078)
 interpret_cnp(5201206346491, lang = "RO")
 interpret_cnp(1940616346114)
+interpret_cnp(1940616346114, lang = "EN")
 interpret_cnp(7041218318525)
 }
