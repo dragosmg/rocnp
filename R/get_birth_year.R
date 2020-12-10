@@ -9,7 +9,6 @@
 #'
 #' @param cnp_dec a named character vector representing a decomposed Personal
 #'     Numeric Code
-#' @inheritParams interpret_cnp
 #'
 #' @return an string representing the year of birth or the possible years (in
 #'     the case of residents)
@@ -20,9 +19,7 @@
 #' get_birth_year(a)
 #' b <- decompose_cnp(7041218318525)
 #' get_birth_year(b)
-get_birth_year <- function(cnp_dec, lang = c("RO", "EN")) {
-
-    lang <- match.arg(lang)
+get_birth_year <- function(cnp_dec) {
 
     if (cnp_dec["S"] %in% as.character(c(1, 2))) {
         birth_year <- stringr::str_c(19, cnp_dec["AA"])
@@ -39,23 +36,14 @@ get_birth_year <- function(cnp_dec, lang = c("RO", "EN")) {
         return(birth_year)
     }
 
-    this_year_2d <- lubridate::today() %>%
+    this_year_2d <- lubridate::today(tzone = "UTC") %>%
         lubridate::year() %>%
         stringr::str_sub(3, 4) %>%
         as.integer()
 
-    if (lang == "RO") {
-        prep <- "sau"
-    } else {
-        prep <- "or"
-    }
-
-    # this assumes that Romanian residents born in a different country are under
-    # the age of 100
     if (cnp_dec["S"] %in% c("7", "8") &&
         as.integer(cnp_dec["AA"]) <= this_year_2d) {
-        birth_year <- glue::glue("{stringr::str_c(20, cnp_dec['AA'])} \\
-                                 {prep} {stringr::str_c(19, cnp_dec['AA'])}")
+        birth_year <- stringr::str_c("__", cnp_dec["AA"])
         return(birth_year)
     } else {
         birth_year <- stringr::str_c(19, cnp_dec["AA"])
