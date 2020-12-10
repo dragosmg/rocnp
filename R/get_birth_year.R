@@ -18,6 +18,12 @@
 #' get_birth_year(7041218318525)
 get_birth_year <- function(cnp) {
 
+    if (!suppressMessages(check_cnp_is_valid(cnp))) {
+        stop(
+            "Please supply a valid CNP. For diagnosis use check_cnp_is_valid()",
+            call. = FALSE)
+    }
+
     cnp_dec <- decompose_cnp(cnp)
 
     if (cnp_dec["S"] %in% as.character(c(1, 2))) {
