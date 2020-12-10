@@ -2,16 +2,12 @@
 % Please edit documentation in R/get_birth_year.R
 \name{get_birth_year}
 \alias{get_birth_year}
-\title{Extract Birth Year from the Personal Numeric Code}
+\title{Extract Year of Birth from the Personal Numeric Code}
 \usage{
-get_birth_year(cnp_dec, lang = c("RO", "EN"))
+get_birth_year(cnp)
 }
 \arguments{
-\item{cnp_dec}{a named character vector representing a decomposed Personal
-Numeric Code}
-
-\item{lang}{a string denoting the language for the interpretation - either
-\code{RO} for Romanian (the default) or \code{EN} for English.}
+\item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
 }
 \value{
 an string representing the year of birth or the possible years (in
@@ -26,8 +22,6 @@ especially since for residents not born in Romania, there might be two
 possible valid values for the birth year.
 }
 \examples{
-a <- decompose_cnp(1940616346114)
-get_birth_year(a)
-b <- decompose_cnp(7041218318525)
-get_birth_year(b)
+get_birth_year(1940616346114)
+get_birth_year(7041218318525)
 }

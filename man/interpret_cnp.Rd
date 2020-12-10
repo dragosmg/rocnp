@@ -16,8 +16,7 @@ interpreteaza_cnp(cnp, lang = c("RO", "EN"))
 \code{RO} for Romanian (the default) or \code{EN} for English.}
 }
 \value{
-a character vector of length 1 containing a sentence interpreting the
-Personal Numeric Code.
+a character interpretation the Personal Numeric Code
 }
 \description{
 This function offers a verbose interpretation of the Personal Numeric Code.
@@ -26,5 +25,6 @@ This function offers a verbose interpretation of the Personal Numeric Code.
 interpret_cnp(6201206018078)
 interpret_cnp(5201206346491, lang = "RO")
 interpret_cnp(1940616346114)
+interpret_cnp(1940616346114, lang = "EN")
 interpret_cnp(7041218318525)
 }

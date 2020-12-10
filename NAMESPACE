@@ -2,7 +2,9 @@
 
 export("%>%")
 export(decompose_cnp)
+export(get_birth_month)
 export(get_birth_year)
+export(get_status)
 export(interpret_cnp)
 export(interpreteaza_cnp)
 importFrom(magrittr,"%>%")
