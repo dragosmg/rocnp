@@ -20,7 +20,8 @@ Imports:
     magrittr,
     readr,
     rlang,
-    stringr
+    stringr,
+    tibble
 Suggests: 
     covr,
     testthat
