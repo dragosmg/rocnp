@@ -6,8 +6,7 @@
 #' @param lang a string denoting the language for the interpretation - either
 #'   `RO` for Romanian (the default) or `EN` for English.
 #'
-#' @return a character vector of length 1 containing a sentence interpreting the
-#'   Personal Numeric Code.
+#' @return a character interpretation the Personal Numeric Code
 #' @export
 #'
 #' @examples
@@ -22,19 +21,19 @@ interpret_cnp <- function(cnp, lang = c("RO", "EN")) {
     lang <- match.arg(lang)
 
     # extract the gender
-    sex <- get_sex(cnp_dec, lang)
+    sex <- get_sex(cnp, lang)
 
     # extract the year of birth
-    birth_year <- get_birth_year(cnp_dec)
+    birth_year <- get_birth_year(cnp)
 
     # extract month
-    birth_month <- get_birth_month(cnp_dec, lang)
+    birth_month <- get_birth_month(cnp, lang)
 
     # extract the county in which the CNP was issued
-    county <- get_county(cnp_dec)
+    county <- get_county(cnp)
 
     # extract status (native vs resident)
-    status <- get_status(cnp_dec, lang)
+    status <- get_status(cnp, lang)
 
     if (lang == "RO") {
         result <- glue::glue("Sexul: {sex},
