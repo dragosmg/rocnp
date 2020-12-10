@@ -1,4 +1,4 @@
-#' Extract Birth Year from the Personal Numeric Code
+#' Extract Year of Birth from the Personal Numeric Code
 #'
 #' This function infers the year of birth based on the code for gender - which
 #' is indicative of the century of birth - and the `AA` component denoting the
@@ -7,19 +7,18 @@
 #' especially since for residents not born in Romania, there might be two
 #' possible valid values for the birth year.
 #'
-#' @param cnp_dec a named character vector representing a decomposed Personal
-#'     Numeric Code
+#' @inheritParams interpret_cnp
 #'
 #' @return an string representing the year of birth or the possible years (in
 #'     the case of residents)
 #' @export
 #'
 #' @examples
-#' a <- decompose_cnp(1940616346114)
-#' get_birth_year(a)
-#' b <- decompose_cnp(7041218318525)
-#' get_birth_year(b)
-get_birth_year <- function(cnp_dec) {
+#' get_birth_year(1940616346114)
+#' get_birth_year(7041218318525)
+get_birth_year <- function(cnp) {
+
+    cnp_dec <- decompose_cnp(cnp)
 
     if (cnp_dec["S"] %in% as.character(c(1, 2))) {
         birth_year <- stringr::str_c(19, cnp_dec["AA"])
