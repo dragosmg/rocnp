@@ -9,7 +9,7 @@ test_that("get_birth_month works", {
         get_birth_month(1940616346114, lang = "EN", type = "numeric"),
         6)
     expect_equal(
-        get_birth_month(1940616346114, lang = "EN",type = "short"), "Jun")
+        get_birth_month(1940616346114, lang = "EN", type = "short"), "Jun")
 
 
     expect_equal(get_birth_month(7041218318525), "Decembrie")
