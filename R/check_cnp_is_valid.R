@@ -7,7 +7,7 @@ check_cnp_is_valid <- function(cnp) {
         return(FALSE)
     }
 
-    if(nchar(cnp) != 13) {
+    if (nchar(cnp) != 13) {
         msg <- glue::glue("CNP is made up of 13 digits. You supplied a number \\
                           made up of {nchar(cnp)} digits.")
         message(msg)
@@ -29,8 +29,8 @@ check_cnp_is_valid <- function(cnp) {
 
 
     if (!(cnp_dec["LL"] %in% valid_months)) {
-        msg <- glue::glue("The months component ('LL') should be between 01 and \\
-                          12. The 'LL' component for your number is \\
+        msg <- glue::glue("The months component ('LL') should be between 01 \\
+                          and 12. The 'LL' component for your number is \\
                           {cnp_dec['LL']}.")
         message(msg)
         return(FALSE)
