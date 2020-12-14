@@ -1,8 +1,8 @@
 #' Extract the Month of Birth from the Personal Numeric Code
 #'
-#' This function extracts the month of birth based on `"LL"`. The main purpose
-#' of this function is to help the `interpret_cnp()` functionality. The year is
-#' returned as string, in the specified language - defaults to Romanian.
+#' This function extracts the month of birth starting from the `"LL"` component.
+#' The month returned either as string (`long` and `short` variants) or numeric,
+#' in the specified language, the default being Romanian.
 #'
 #' @inheritParams interpret_cnp
 #' @inheritParams get_birth_year
@@ -13,18 +13,22 @@
 #' @export
 #'
 #' @examples
-#' a <- decompose_cnp(1940616346114)
-#' get_birth_month(a)
-#' get_birth_month(a, type = "short")
-#' get_birth_month(a, type = "numeric")
-#' b <- decompose_cnp(7041218318525)
-#' get_birth_month(b, lang = "EN")
-#' get_birth_month(b, lang = "EN", type = "long")
-#' get_birth_month(b, lang = "EN", type = "numeric")
-#' get_birth_month(b, lang = "EN", type = "short")
+#' get_birth_month(1940616346114)
+#' get_birth_month(1940616346114, type = "short")
+#' get_birth_month(1940616346114, type = "numeric")
+#' get_birth_month(7041218318525, lang = "EN")
+#' get_birth_month(7041218318525, lang = "EN", type = "long")
+#' get_birth_month(7041218318525, lang = "EN", type = "numeric")
+#' get_birth_month(7041218318525, lang = "EN", type = "short")
 get_birth_month <- function(cnp,
                             lang = c("RO", "EN"),
                             type = c("long", "numeric", "short")) {
+
+    if (!suppressMessages(check_cnp_is_valid(cnp))) {
+        stop(
+            "Please supply a valid CNP. For diagnosis use check_cnp_is_valid()",
+            call. = FALSE)
+    }
 
     cnp_dec <- decompose_cnp(cnp)
 
