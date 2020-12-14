@@ -15,10 +15,10 @@
 #' get_sex(7041218318525)
 get_sex <- function(cnp, lang = c("RO", "EN")) {
 
-    if (!check_cnp_is_valid(cnp)) {
-        msg <- glue::glue("Please supply a valid CNP. For diagnosis use \\
-                          check_cnp_is_valid()")
-        stop(msg, call. = FALSE)
+    if (!suppressMessages(check_cnp_is_valid(cnp))) {
+        stop(
+            "Please supply a valid CNP. For diagnosis use check_cnp_is_valid()",
+            call. = FALSE)
     }
 
     cnp_dec <- decompose_cnp(cnp)
