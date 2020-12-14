@@ -10,11 +10,11 @@ get_birth_year(cnp)
 \item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
 }
 \value{
-an string representing the year of birth or the possible years (in
+a string representing the year of birth or the possible years (in
 the case of residents)
 }
 \description{
-This function infers the year of birth based on the code for gender - which
+This function infers the year of birth based on the code for sex - which
 is indicative of the century of birth - and the \code{AA} component denoting the
 last 2 digits of the birth year. The main purpose of this function is to help
 the \code{interpret_cnp()} functionality. Thus, the year is returned as string,

@@ -1,6 +1,6 @@
 #' Extract Year of Birth from the Personal Numeric Code
 #'
-#' This function infers the year of birth based on the code for gender - which
+#' This function infers the year of birth based on the code for sex - which
 #' is indicative of the century of birth - and the `AA` component denoting the
 #' last 2 digits of the birth year. The main purpose of this function is to help
 #' the `interpret_cnp()` functionality. Thus, the year is returned as string,
@@ -9,7 +9,7 @@
 #'
 #' @inheritParams interpret_cnp
 #'
-#' @return an string representing the year of birth or the possible years (in
+#' @return a string representing the year of birth or the possible years (in
 #'     the case of residents)
 #' @export
 #'
