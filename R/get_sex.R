@@ -1,4 +1,25 @@
+#' Extract the Sex from the Personal Numeric Code
+#'
+#' This function extracts the sex based on the sex component `S`. Worth noting
+#' that, at the moment of the implementation, Romanian authorities view sex as
+#' binary and sex changes are allowed (cases in which a new CNP would be issued)
+#'
+#' @inheritParams interpret_cnp
+#'
+#' @return a string describing the sex in the desired language (either Romanian
+#'     or English)
+#' @export
+#'
+#' @examples
+#' get_sex(1940616346114)
+#' get_sex(7041218318525)
 get_sex <- function(cnp, lang = c("RO", "EN")) {
+
+    if (!check_cnp_is_valid(cnp)) {
+        msg <- glue::glue("Please supply a valid CNP. For diagnosis use \\
+                          check_cnp_is_valid()")
+        stop(msg, call. = FALSE)
+    }
 
     cnp_dec <- decompose_cnp(cnp)
 
