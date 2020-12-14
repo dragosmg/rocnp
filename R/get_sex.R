@@ -16,8 +16,8 @@
 get_sex <- function(cnp, lang = c("RO", "EN")) {
 
     if (!check_cnp_is_valid(cnp)) {
-        msg <- glue::glue("The CNP is not valid. Please run \\
-                          `check_cnp_is_valid()` for more information.")
+        msg <- glue::glue("Please supply a valid CNP. For diagnosis use \\
+                          check_cnp_is_valid()")
         stop(msg, call. = FALSE)
     }
 
