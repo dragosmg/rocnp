@@ -23,18 +23,16 @@ month name (default), \code{"short"}, short month name, and \code{"numeric"}}
 a string or numeric depending on the requested output
 }
 \description{
-This function extracts the month of birth based on \code{"LL"}. The main purpose
-of this function is to help the \code{interpret_cnp()} functionality. The year is
-returned as string, in the specified language - defaults to Romanian.
+This function extracts the month of birth starting from the \code{"LL"} component.
+The month returned either as string (\code{long} and \code{short} variants) or numeric,
+in the specified language, the default being Romanian.
 }
 \examples{
-a <- decompose_cnp(1940616346114)
-get_birth_month(a)
-get_birth_month(a, type = "short")
-get_birth_month(a, type = "numeric")
-b <- decompose_cnp(7041218318525)
-get_birth_month(b, lang = "EN")
-get_birth_month(b, lang = "EN", type = "long")
-get_birth_month(b, lang = "EN", type = "numeric")
-get_birth_month(b, lang = "EN", type = "short")
+get_birth_month(1940616346114)
+get_birth_month(1940616346114, type = "short")
+get_birth_month(1940616346114, type = "numeric")
+get_birth_month(7041218318525, lang = "EN")
+get_birth_month(7041218318525, lang = "EN", type = "long")
+get_birth_month(7041218318525, lang = "EN", type = "numeric")
+get_birth_month(7041218318525, lang = "EN", type = "short")
 }
