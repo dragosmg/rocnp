@@ -18,7 +18,6 @@ Imports:
     glue,
     lubridate,
     magrittr,
-    readr,
     rlang,
     stringr,
     tibble
