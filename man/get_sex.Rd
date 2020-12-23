@@ -4,24 +4,22 @@
 \alias{get_sex}
 \title{Extract the Sex from the Personal Numeric Code}
 \usage{
-get_sex(cnp, lang = c("RO", "EN"))
+get_sex(cnp)
 }
 \arguments{
 \item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
-
-\item{lang}{a string denoting the language for the interpretation - either
-\code{RO} for Romanian (the default) or \code{EN} for English.}
 }
 \value{
-a string describing the sex in the desired language (either Romanian
-or English)
+a character vector of \code{M} and/ or \code{F}
 }
 \description{
 This function extracts the sex based on the sex component \code{S}. Worth noting
 that, at the moment of the implementation, Romanian authorities view sex as
-binary and sex changes are allowed (cases in which a new CNP would be issued)
+binary. In the event of a sex change a new CNP is issued.
 }
 \examples{
 get_sex(1940616346114)
 get_sex(7041218318525)
+get_sex(6201206018078)
+get_sex(5201206346491)
 }
