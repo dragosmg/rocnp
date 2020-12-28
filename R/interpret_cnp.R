@@ -21,7 +21,7 @@ interpret_cnp <- function(cnp, lang = c("RO", "EN")) {
     lang <- match.arg(lang)
 
     # extract the gender
-    sex <- get_sex(cnp, lang)
+    sex <- get_sex(cnp)
 
     # extract the year of birth
     birth_year <- get_birth_year(cnp)
