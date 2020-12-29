@@ -4,40 +4,22 @@
 \alias{get_birth_month}
 \title{Extract the Month of Birth from the Personal Numeric Code}
 \usage{
-get_birth_month(
-  cnp,
-  lang = c("RO", "EN"),
-  type = c("long", "numeric", "short")
-)
+get_birth_month(cnp)
 }
 \arguments{
 \item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
 the Personal Numeric Code - CNP}
-
-\item{lang}{a string denoting the language for the interpretation - either
-\code{RO} for Romanian (the default) or \code{EN} for English.}
-
-\item{type}{string indicating type of output desired, one of \code{"long"}, full
-month name (default), \code{"short"}, short month name, and \code{"numeric"}}
 }
 \value{
-a string or numeric depending on the requested output
+a numeric vector representing the month of birth
 }
 \description{
 This function extracts the month of birth starting from the \code{"LL"} component.
-The month returned either as string (\code{long} and \code{short} variants) or numeric,
-in the specified language, the default being Romanian.
 }
 \examples{
 get_birth_month(1940616346114)
-get_birth_month(1940616346114, type = "short")
-get_birth_month(1940616346114, type = "numeric")
-get_birth_month(7041218318525, lang = "EN")
-get_birth_month(7041218318525, lang = "EN", type = "long")
-get_birth_month(7041218318525, lang = "EN", type = "numeric")
-get_birth_month(7041218318525, lang = "EN", type = "short")
+get_birth_month(7041218318525)
 cnps <- c(5201206346491, 1940616346114, 7041218318525, 6201206018078)
-get_birth_month(cnps, lang = "EN", type = "short")
-get_birth_month(cnps, lang = "RO")
+get_birth_month(cnps)
 get_birth_month(c(5201206346491, 1940616346114, 7041218318525, NA))
 }
