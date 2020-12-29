@@ -11,6 +11,4 @@ test_that("get_cnp_checksum works", {
     expect_equal(get_cnp_checksum(4980423260322), 2)
 
     expect_equal(get_cnp_checksum(6201228325231), 1)
-
-    expect_equivalent(get_cnp_checksum(NA), NA_integer_)
 })
