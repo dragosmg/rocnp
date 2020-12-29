@@ -1,5 +1,12 @@
 test_that("get_status works", {
 
+    valid_cnps <- c(1940616346114, 7041218318525, 4980423260322, NA)
+    status_vec <- c("nascut in Romania", "rezident",
+                    "nascut in Romania", NA_character_)
+
+    expect_equal(get_status(valid_cnps),
+                 status_vec)
+
     expect_equal(get_status(6201206018078), "nascut in Romania")
 
     expect_equal(get_status(5201206346491), "nascut in Romania")
@@ -18,7 +25,7 @@ test_that("get_status complains", {
 
     expect_error(
         get_status("6201206018078"),
-        "Please supply a valid CNP. For diagnosis use check_cnp_is_valid()")
+        "Please supply a vector of valid CNPs. The input vector has 1 invalid values. For a detailed diagnosis use check_cnp_is_valid()")
 
     expect_error(get_status(62012060180782))
 
