@@ -1,4 +1,26 @@
+#' Check if a CNP is valid
+#'
+#' @inheritParams get_sex
+#'
+#' @return a logical vector (`TRUE`, `FALSE` or `NA`)
+#' @export
+#'
+#' @examples
+#' check_cnp_is_valid(1940616346114)
+#' check_cnp_is_valid(7041218318525)
+#' check_cnp_is_valid(62012060180783)
+#' check_cnp_is_valid(NA)
 check_cnp_is_valid <- function(cnp) {
+    purrr::map_lgl(cnp, check_cnp_is_valid_unvec)
+}
+
+check_cnp_is_valid_unvec <- function(cnp) {
+
+    if (is.na(cnp)) {
+        msg <- "This value is missing"
+        message(msg)
+        return(NA)
+    }
 
     if (!is.numeric(cnp)) {
         msg <- glue::glue(

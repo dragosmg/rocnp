@@ -7,10 +7,11 @@
 get_status(cnp, lang = c("RO", "EN"))
 }
 \arguments{
-\item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
+\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
+the Personal Numeric Code - CNP}
 
-\item{lang}{a string denoting the language for the interpretation - either
-\code{RO} for Romanian (the default) or \code{EN} for English.}
+\item{lang}{a string denoting the language for the status - either \code{RO} for
+Romanian (the default) or \code{EN} for English.}
 }
 \value{
 a string denoting residence status in the language of choice

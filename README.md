@@ -49,3 +49,8 @@ summary(cars)
 
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`
 up-to-date.
+
+## Things to document
+
+NAs are contagious invalid CNPs will throw an error, forcing you to
+confront then early. Easiest to use `check_cnp_is_valid()` first.

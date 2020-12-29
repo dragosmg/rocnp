@@ -7,19 +7,20 @@
 get_birth_year(cnp)
 }
 \arguments{
-\item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
+\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
+the Personal Numeric Code - CNP}
 }
 \value{
-a string representing the year of birth or the possible years (in
-the case of residents)
+a character vector representing the year of birth (the century is
+unknown for non-natives)
 }
 \description{
 This function infers the year of birth based on the code for sex - which
-is indicative of the century of birth - and the \code{AA} component denoting the
-last 2 digits of the birth year. The main purpose of this function is to help
-the \code{interpret_cnp()} functionality. Thus, the year is returned as string,
+is also indicative of the century of birth - and the \code{AA} component denoting
+the final 2 digits of the birth year. The year is returned as string,
 especially since for residents not born in Romania, there might be two
-possible valid values for the birth year.
+possible valid values for the birth year - in this case the year is returned
+as \code{"__yy"}
 }
 \examples{
 get_birth_year(1940616346114)

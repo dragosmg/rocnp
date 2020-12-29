@@ -11,7 +11,7 @@
 #'     between people born on the same day in the same county
 #'     * `C` - digit 13 checksum
 #'
-#' @inheritParams interpret_cnp
+#' @inheritParams get_sex
 #'
 #' @return a named character vector splitting the CNP into its components.
 #' @export
