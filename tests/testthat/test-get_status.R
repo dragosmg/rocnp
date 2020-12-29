@@ -25,7 +25,10 @@ test_that("get_status complains", {
 
     expect_error(
         get_status("6201206018078"),
-        "Please supply a vector of valid CNPs. The input vector has 1 invalid values. For a detailed diagnosis use check_cnp_is_valid()")
+        paste("Please supply a vector of valid CNPs.",
+              "The input vector has 1 invalid values.",
+              "For a detailed diagnosis use check_cnp_is_valid()")
+        )
 
     expect_error(get_status(62012060180782))
 

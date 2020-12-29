@@ -18,7 +18,9 @@ test_that("get_county works", {
 test_that("get_county complains", {
     expect_error(
         get_county(49804232603242),
-        "Please supply a vector of valid CNPs. The input vector has 1 invalid values. For a detailed diagnosis use check_cnp_is_valid()"
+        paste("Please supply a vector of valid CNPs.",
+              "The input vector has 1 invalid values.",
+              "For a detailed diagnosis use check_cnp_is_valid()")
     )
 
     expect_error(get_county("1940616346114"))

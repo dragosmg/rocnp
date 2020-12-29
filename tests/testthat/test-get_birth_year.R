@@ -19,7 +19,9 @@ test_that("get_birth_year works", {
 test_that("get_birth_year complains", {
     expect_error(
         get_birth_year(49804232603242),
-        "lease supply a vector of valid CNPs. The input vector has 1 invalid values. For a detailed diagnosis use check_cnp_is_valid()"
+        paste("Please supply a vector of valid CNPs.",
+              "The input vector has 1 invalid values.",
+              "For a detailed diagnosis use check_cnp_is_valid()")
     )
 
     expect_error(get_birth_year("1940616346114"))
