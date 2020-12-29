@@ -12,5 +12,5 @@ NULL
 if (getRversion() >= "2.15.1")  {
     utils::globalVariables(c(".", "sex", "status", "birth_month",
                              "birth_year", "county", "cnp_dec", "month",
-                             "max_days"))
+                             "max_days", "invalid_cnps"))
 }
