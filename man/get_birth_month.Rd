@@ -36,4 +36,8 @@ get_birth_month(7041218318525, lang = "EN")
 get_birth_month(7041218318525, lang = "EN", type = "long")
 get_birth_month(7041218318525, lang = "EN", type = "numeric")
 get_birth_month(7041218318525, lang = "EN", type = "short")
+cnps <- c(5201206346491, 1940616346114, 7041218318525, 6201206018078)
+get_birth_month(cnps, lang = "EN", type = "short")
+get_birth_month(cnps, lang = "RO")
+get_birth_month(c(5201206346491, 1940616346114, 7041218318525, NA))
 }
