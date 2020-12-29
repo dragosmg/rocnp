@@ -7,19 +7,25 @@
 get_sex(cnp)
 }
 \arguments{
-\item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
+\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
+the Personal Numeric Code - CNP}
 }
 \value{
-a character vector of \code{M} and/ or \code{F}
+a character vector of the recorded sex: \code{M}, \code{F} (if the CNP is
+valid) or \code{NA_character} if the CNP is missing
 }
 \description{
-This function extracts the sex based on the sex component \code{S}. Worth noting
-that, at the moment of the implementation, Romanian authorities view sex as
-binary. In the event of a sex change a new CNP is issued.
+This function extracts the sex based on the sex component \code{S} of the CNP.
+It is worth noting that, at the moment of the implementation, Romanian
+authorities define sex as binary. In the event of a sex change a new CNP
+could be issued. The function returns an error if there is at least one
+invalid CNP in the input vector, forcing you to confront the issue early. The
+easiest way to get around this is to use \code{check_cnp_is_valid()}.
 }
 \examples{
 get_sex(1940616346114)
 get_sex(7041218318525)
 get_sex(6201206018078)
 get_sex(5201206346491)
+get_sex(c(5201206346491, 1940616346114, 7041218318525, 6201206018078))
 }

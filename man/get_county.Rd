@@ -7,7 +7,8 @@
 get_county(cnp)
 }
 \arguments{
-\item{cnp}{a 13-digit number representing the Personal Numeric Code - CNP}
+\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
+the Personal Numeric Code - CNP}
 }
 \value{
 a string representing the name of the county where the CNP was issued
