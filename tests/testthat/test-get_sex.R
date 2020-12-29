@@ -13,7 +13,7 @@ test_that("get_sex works", {
 test_that("get_sex complains", {
     expect_error(
         get_sex(49804232603242),
-        "Please supply a vector of valid CNPs. At least one of the supplied values is not valid. For diagnosis use check_cnp_is_valid()"
+        "Please supply a vector of valid CNPs. The input vector has 1 invalid values. For a detailed diagnosis use check_cnp_is_valid()"
     )
 
     expect_error(get_sex("1940616346114"))

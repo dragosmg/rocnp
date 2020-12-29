@@ -9,6 +9,8 @@ test_that("check_cnp_is_valid works", {
 
     # too long
     expect_false(check_cnp_is_valid(62012060180781))
+    expect_equal(check_cnp_is_valid(c(6201206018078, 62012060180781)),
+                 c(TRUE, FALSE))
     expect_message(check_cnp_is_valid(62012060180781),
                    paste0("CNP is made up of 13 digits. You supplied a ",
                           "number made up of 14 digits."))
