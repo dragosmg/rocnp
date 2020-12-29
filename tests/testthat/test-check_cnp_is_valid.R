@@ -1,4 +1,10 @@
 test_that("check_cnp_is_valid works", {
+    cnps <- c(1940616346114, 7041218318525, 49804232603223, NA)
+    validity <- c(TRUE, TRUE, FALSE, NA)
+
+    expect_equal(check_cnp_is_valid(cnps),
+                 validity)
+
     # CNP is correct
     expect_true(check_cnp_is_valid(6201206018078))
 
