@@ -1,6 +1,6 @@
 test_that("get_county works", {
     valid_cnps <- c(1940616346114, 7041218318525, 4980423260322, NA)
-    counties <- c("Teleorman", "Sălaj", "Mureș", NA)
+    counties <- c("Teleorman", "Sălaj", "Mureș", NA_character_)
 
     expect_equal(get_county(1940616346114), "Teleorman")
 

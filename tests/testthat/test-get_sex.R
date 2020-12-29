@@ -1,6 +1,6 @@
 test_that("get_sex works", {
     valid_cnps <- c(1940616346114, 7041218318525, 4980423260322, NA)
-    sex_vec <- c("M", "M", "F", NA)
+    sex_vec <- c("M", "M", "F", NA_character_)
 
     expect_equal(get_sex(1940616346114), "M")
 
