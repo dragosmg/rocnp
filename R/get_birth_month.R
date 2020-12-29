@@ -24,22 +24,52 @@ get_birth_month <- function(cnp,
                             lang = c("RO", "EN"),
                             type = c("long", "numeric", "short")) {
 
-    if (!suppressMessages(check_cnp_is_valid(cnp))) {
-        stop(
-            "Please supply a valid CNP. For diagnosis use check_cnp_is_valid()",
-            call. = FALSE)
+    suppressMessages(
+        checks <- check_cnp_is_valid(cnp)
+    )
+
+    if (any(checks == FALSE, na.rm = TRUE)) {
+        invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
+        stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
+                               input vector has {invalid_cnps} invalid \\
+                               values. For a detailed diagnosis use \\
+                               check_cnp_is_valid()")
+        stop(stop_msg, call. = FALSE)
     }
 
-    cnp_dec <- decompose_cnp(cnp)
+    cnp_dec <- purrr::map(cnp, decompose_cnp)
 
     lang <- match.arg(lang)
 
     type <- match.arg(type)
 
+    arg_list <- list(cnp_dec = cnp_dec,
+                     lang = rep(lang, length(cnp_dec)),
+                     type = rep(type, length(cnp_dec)))
+
+    if (type == "numeric") {
+        result <- purrr::pmap_dbl(arg_list, get_birth_month_unvec)
+    } else {
+        result <- purrr::pmap_chr(arg_list, get_birth_month_unvec)
+    }
+
+    result
+}
+
+get_birth_month_unvec <- function(cnp_dec, lang, type) {
+
     # define a vector of month names in Romanian
     month_name_ro <- c("Ianuarie", "Februarie", "Martie", "Aprilie", "Mai",
                        "Iunie", "Iulie", "August", "Septembrie", "Octombrie",
                        "Noiembrie", "Decembrie")
+
+    if (is.na(cnp_dec["LL"]) && type != "numeric") {
+        return(NA_character_)
+    }
+
+    if (is.na(cnp_dec["LL"]) && type == "numeric") {
+        return(NA_integer_)
+    }
 
     if (type == "numeric") {
         month <- as.numeric(cnp_dec["LL"])
