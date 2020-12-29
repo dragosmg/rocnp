@@ -1,4 +1,15 @@
-check_cnp_is_valid <- function(cnp) {
+
+check_cnp_is_valid <- function(cnp_vec) {
+    purrr::map_lgl(cnp_vec, check_cnp_is_valid_unvec)
+}
+
+check_cnp_is_valid_unvec <- function(cnp) {
+
+    if (is.na(cnp)) {
+        msg <- "This value is missing"
+        message(msg)
+        return(NA)
+    }
 
     if (!is.numeric(cnp)) {
         msg <- glue::glue(
