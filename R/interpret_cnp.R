@@ -2,9 +2,10 @@
 #'
 #' This function offers a verbose interpretation of the Personal Numeric Code.
 #'
-#' @param cnp a 13-digit number representing the Personal Numeric Code - CNP
+#' @param cnp a 13-digit number (or a vector of 13-digit numbers) representing
+#'     the Personal Numeric Code - CNP
 #' @param lang a string denoting the language for the interpretation - either
-#'   `RO` for Romanian (the default) or `EN` for English.
+#'     `RO` for Romanian (the default) or `EN` for English.
 #'
 #' @return a character interpretation the Personal Numeric Code
 #' @export
