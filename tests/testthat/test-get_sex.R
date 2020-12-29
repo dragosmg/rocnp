@@ -1,4 +1,7 @@
 test_that("get_sex works", {
+    valid_cnps <- c(1940616346114, 7041218318525, 4980423260322, NA)
+    sex_vec <- c("M", "M", "F", NA)
+
     expect_equal(get_sex(1940616346114), "M")
 
     expect_equal(get_sex(7041218318525), "M")
@@ -8,6 +11,8 @@ test_that("get_sex works", {
     expect_equal(get_sex(7321206018072), "M")
 
     expect_equal(get_sex(4980423260322), "F")
+
+    expect_equal(get_sex(valid_cnps), sex_vec)
 })
 
 test_that("get_sex complains", {

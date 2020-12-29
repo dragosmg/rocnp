@@ -1,4 +1,7 @@
 test_that("get_county works", {
+    valid_cnps <- c(1940616346114, 7041218318525, 4980423260322, NA)
+    counties <- c("Teleorman", "Sălaj", "Mureș", NA)
+
     expect_equal(get_county(1940616346114), "Teleorman")
 
     expect_equal(get_county(7041218318525), "Sălaj")
@@ -8,12 +11,14 @@ test_that("get_county works", {
     expect_equal(get_county(7321206018072), "Alba")
 
     expect_equal(get_county(4980423260322), "Mureș")
+
+    expect_equal(get_county(valid_cnps), counties)
 })
 
 test_that("get_county complains", {
     expect_error(
         get_county(49804232603242),
-        "Please supply a valid CNP. For diagnosis use check_cnp_is_valid()"
+        "Please supply a vector of valid CNPs. The input vector has 1 invalid values. For a detailed diagnosis use check_cnp_is_valid()"
     )
 
     expect_error(get_county("1940616346114"))
