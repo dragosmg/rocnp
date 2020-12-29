@@ -4,8 +4,10 @@
 #' The month returned either as string (`long` and `short` variants) or numeric,
 #' in the specified language, the default being Romanian.
 #'
-#' @inheritParams interpret_cnp
-#' @inheritParams get_birth_year
+#' @inheritParams get_sex
+#' @param lang a string denoting the language for the interpretation - either
+#'     `RO` for Romanian (the default) or `EN` for English.
+#'
 #' @param type string indicating type of output desired, one of `"long"`, full
 #'     month name (default), `"short"`, short month name, and `"numeric"`
 #'

@@ -1,6 +1,6 @@
 #' Extract County of Issue from the Personal Numeric Code
 #'
-#' @inheritParams interpret_cnp
+#' @inheritParams get_sex
 #'
 #' @return a string representing the name of the county where the CNP was issued
 #' @export

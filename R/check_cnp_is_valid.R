@@ -1,6 +1,6 @@
 #' Check if a CNP is valid
 #'
-#' @inheritParams interpret_cnp
+#' @inheritParams get_sex
 #'
 #' @return a logical vector (`TRUE`, `FALSE` or `NA`)
 #' @export

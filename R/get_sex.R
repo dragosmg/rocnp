@@ -7,7 +7,8 @@
 #' invalid CNP in the input vector, forcing you to confront the issue early. The
 #' easiest way to get around this is to use `check_cnp_is_valid()`.
 #'
-#' @inheritParams interpret_cnp
+#' @param cnp a 13-digit number (or a vector of 13-digit numbers) representing
+#'     the Personal Numeric Code - CNP
 #'
 #' @return a character vector of the recorded sex: `M`, `F` (if the CNP is
 #'     valid) or `NA_character` if the CNP is missing

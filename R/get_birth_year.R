@@ -7,7 +7,7 @@
 #' possible valid values for the birth year - in this case the year is returned
 #' as `"__yy"`
 #'
-#' @inheritParams interpret_cnp
+#' @inheritParams get_sex
 #'
 #' @return a character vector representing the year of birth (the century is
 #'     unknown for non-natives)

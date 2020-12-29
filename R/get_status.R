@@ -1,6 +1,7 @@
 #' Extract Residence Status from the Personal Numeric Code
 #'
-#' @inheritParams interpret_cnp
+#' @inheritParams get_sex
+#' @inheritParams get_birth_month
 #'
 #' @return a string denoting residence status in the language of choice
 #' @export
