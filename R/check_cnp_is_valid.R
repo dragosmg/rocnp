@@ -1,6 +1,17 @@
-
-check_cnp_is_valid <- function(cnp_vec) {
-    purrr::map_lgl(cnp_vec, check_cnp_is_valid_unvec)
+#' Check if a CNP is valid
+#'
+#' @inheritParams interpret_cnp
+#'
+#' @return a logical vector (`TRUE`, `FALSE` or `NA`)
+#' @export
+#'
+#' @examples
+#' check_cnp_is_valid(1940616346114)
+#' check_cnp_is_valid(7041218318525)
+#' check_cnp_is_valid(62012060180783)
+#' check_cnp_is_valid(NA)
+check_cnp_is_valid <- function(cnp) {
+    purrr::map_lgl(cnp, check_cnp_is_valid_unvec)
 }
 
 check_cnp_is_valid_unvec <- function(cnp) {
