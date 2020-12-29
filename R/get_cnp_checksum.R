@@ -1,9 +1,4 @@
 get_cnp_checksum <- function(cnp) {
-
-    if (is.na(cnp)) {
-        return(NA_integer_)
-    }
-
     dec_cnp <- stringr::str_extract_all(as.character(cnp), "[0-9]") %>%
         unlist()
 
