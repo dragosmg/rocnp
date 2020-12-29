@@ -25,7 +25,7 @@ get_sex <- function(cnp) {
         checks <- check_cnp_is_valid(cnp)
     )
 
-    if (any(checks == FALSE)) {
+    if (any(checks == FALSE, na.rm = TRUE)) {
         invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
         stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
                                input vector has {invalid_cnps} invalid \\
