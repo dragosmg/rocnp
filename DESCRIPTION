@@ -16,7 +16,6 @@ Depends:
 Imports: 
     dplyr,
     glue,
-    lubridate,
     magrittr,
     purrr,
     rlang,
