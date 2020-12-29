@@ -1,7 +1,8 @@
 #' Extract Residence Status from the Personal Numeric Code
 #'
 #' @inheritParams get_sex
-#' @inheritParams get_birth_month
+#' @param lang a string denoting the language for the status - either `RO` for
+#'     Romanian (the default) or `EN` for English.
 #'
 #' @return a string denoting residence status in the language of choice
 #' @export
