@@ -21,15 +21,26 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of `rocnp` is to provide a set of functions for working with Romanian
+The goal of {rocnp} is to provide a set of functions for working with Romanian
 personal numeric codes. 
+
+## Features
+
+
 
 ## Installation
 
-You can install the released version of rocnp from [CRAN](https://CRAN.R-project.org) with:
+You can't install the released version of {rocnp} from [CRAN](https://CRAN.R-project.org) just yet:
 
 ``` r
 #install.packages("rocnp")
+```
+
+Alternatively, if you need the development version from [GitHub](https://github.com/dragosmg/rocnp), install it with
+
+``` r
+# install.packages(devtools)
+devtools::install_dev("rocnp")
 ```
 
 ## Example
@@ -41,16 +52,3 @@ This is a basic example which shows you how to solve a common problem:
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-## Things to document
-
-NAs are contagious
-invalid CNPs will throw an error, forcing you to confront then early. Easiest to use 
-`check_cnp_is_valid()` first.
