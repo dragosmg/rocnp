@@ -1,4 +1,4 @@
-# rocnp 0.0.1
+# rocnp 0.1.0
 
 * The main functions:
     * `check_cnp_is_valid()` checks whether the components of the CNP and the checksum are valid.
