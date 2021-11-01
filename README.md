@@ -7,13 +7,13 @@
 
 [![R-CMD-check](https://github.com/dragosmg/rocnp/workflows/R-CMD-check/badge.svg)](https://github.com/dragosmg/rocnp/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/dragosmg/rocnp/branch/main/graph/badge.svg)](https://codecov.io/gh/dragosmg/rocnp?branch=main)
+coverage](https://codecov.io/gh/dragosmg/rocnp/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dragosmg/rocnp?branch=main)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of rocnp is to …
+The goal of `rocnp` is to provide a set of functions for working with
+Romanian personal numeric codes.
 
 ## Installation
 
