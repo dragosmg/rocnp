@@ -6,7 +6,7 @@
 \alias{rocnp-package}
 \title{rocnp: Work with Romanian Personal Numeric Codes PNC / CNP}
 \description{
-The goal of `rocnp` is to provide a set of tools for working with the Romanian personal numeric codes.
+The goal of `rocnp` is to provide a set of tools for working with the Romanian personal numeric codes. The central tool is a validation function. This is accompanied by a series of functions which can be used to extract the different components of a personal numeric code.
 }
 \seealso{
 Useful links:
@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Dragoș Moldovan-Grünfeld \email{dragos.mold@gmail.com}
+\strong{Maintainer}: Dragoș Moldovan-Grünfeld \email{dragos.mold@gmail.com} [copyright holder]
 
 }
 \keyword{internal}

@@ -2,9 +2,12 @@ Package: rocnp
 Title: Work with Romanian Personal Numeric Codes PNC / CNP
 Version: 0.0.1
 Authors@R: 
-    person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", role = c("aut", "cre"))
+    person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", 
+           role = c("aut", "cre", "cph"))
 Description: The goal of `rocnp` is to provide a set of tools for working
-    with the Romanian personal numeric codes.
+    with the Romanian personal numeric codes. The central tool is a validation 
+    function. This is accompanied by a series of functions which can be used to 
+    extract the different components of a personal numeric code.
 License: MIT + file LICENSE
 URL: https://github.com/dragosmg/rocnp
 BugReports: https://github.com/dragosmg/rocnp/issues
