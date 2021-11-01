@@ -4,8 +4,7 @@
 \name{rocnp-package}
 \alias{rocnp}
 \alias{rocnp-package}
-\title{rocnp: Tools for Working with Romanian Personal Numeric Codes
-    PNC / CNP}
+\title{rocnp: Tools for Working with Romanian Personal Numeric Codes PNC / CNP}
 \description{
 What the package does (one paragraph).
 }
