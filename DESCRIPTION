@@ -4,11 +4,12 @@ Version: 0.1.0
 Authors@R: 
     person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", 
            role = c("aut", "cre", "cph"))
-Description: 'rocnp' provides a set of tools for working with Romanian personal 
-    numeric codes. The central tool is a validation function which applies 
-    several verification criteria, as defined in the legislation, to assess the 
-    validity of the numeric code. This is accompanied by functionality for 
-    extracting the different components of a personal numeric code.
+Description: A set of tools for working with Romanian personal numeric codes. 
+    The core is a validation function which applies several verification
+    criteria to assess the validity of numeric codes. This is accompanied by 
+    functionality for extracting the different components of a personal numeric
+    code. A personal numeric code is issued to all Romanian residents either at 
+    birth or when they obtain a residence permit.
 License: MIT + file LICENSE
 URL: https://github.com/dragosmg/rocnp
 BugReports: https://github.com/dragosmg/rocnp/issues

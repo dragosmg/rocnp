@@ -6,7 +6,7 @@
 \alias{rocnp-package}
 \title{rocnp: Work with Romanian Personal Numeric Codes PNC / CNP}
 \description{
-'rocnp' provides a set of tools for working with Romanian personal numeric codes. The central tool is a validation function which applies several verification criteria, as defined in the legislation, to assess the validity of the numeric code. This is accompanied by functionality for extracting the different components of a personal numeric code.
+A set of tools for working with Romanian personal numeric codes. The core is a validation function which applies several verification criteria to assess the validity of numeric codes. This is accompanied by functionality for extracting the different components of a personal numeric code. A personal numeric code is issued to all Romanian residents either at birth or when they obtain a residence permit.
 }
 \seealso{
 Useful links:
