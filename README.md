@@ -9,7 +9,7 @@
 [![Codecov test
 coverage](https://codecov.io/gh/dragosmg/rocnp/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dragosmg/rocnp?branch=main)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The goal of {rocnp} is to provide a set of functions for working with
