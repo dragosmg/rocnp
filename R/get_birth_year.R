@@ -18,49 +18,49 @@
 #' get_birth_year(7041218318525)
 get_birth_year <- function(cnp) {
 
-    suppressMessages(
-        checks <- check_cnp_is_valid(cnp)
-    )
+  suppressMessages(
+    checks <- check_cnp_is_valid(cnp)
+  )
 
-    if (any(checks == FALSE, na.rm = TRUE)) {
-        invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
-        stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
+  if (any(checks == FALSE, na.rm = TRUE)) {
+    invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
+    stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
                                input vector has {invalid_cnps} invalid \\
                                values. For a detailed diagnosis use \\
                                check_cnp_is_valid()")
-        stop(stop_msg, call. = FALSE)
-    }
+    stop(stop_msg, call. = FALSE)
+  }
 
-    cnp_dec <- purrr::map(cnp, decompose_cnp)
+  cnp_dec <- purrr::map(cnp, decompose_cnp)
 
-    result <- purrr::map_chr(cnp_dec, get_birth_year_unvec)
+  result <- purrr::map_chr(cnp_dec, get_birth_year_unvec)
 
-    result
+  result
 }
 
 get_birth_year_unvec <- function(cnp_dec) {
 
-    if (is.na(cnp_dec["S"]) || is.na(cnp_dec["AA"])) {
-        return(NA_character_)
-    }
+  if (is.na(cnp_dec["S"]) || is.na(cnp_dec["AA"])) {
+    return(NA_character_)
+  }
 
-    if (cnp_dec["S"] %in% as.character(c(1, 2))) {
-        birth_year <- stringr::str_c(19, cnp_dec["AA"])
-        return(birth_year)
-    }
+  if (cnp_dec["S"] %in% as.character(c(1, 2))) {
+    birth_year <- stringr::str_c(19, cnp_dec["AA"])
+    return(birth_year)
+  }
 
-    if (cnp_dec["S"] %in% as.character(c(3, 4))) {
-        birth_year <- stringr::str_c(18, cnp_dec["AA"])
-        return(birth_year)
-    }
+  if (cnp_dec["S"] %in% as.character(c(3, 4))) {
+    birth_year <- stringr::str_c(18, cnp_dec["AA"])
+    return(birth_year)
+  }
 
-    if (cnp_dec["S"] %in% as.character(c(5, 6))) {
-        birth_year <- stringr::str_c(20, cnp_dec["AA"])
-        return(birth_year)
-    }
+  if (cnp_dec["S"] %in% as.character(c(5, 6))) {
+    birth_year <- stringr::str_c(20, cnp_dec["AA"])
+    return(birth_year)
+  }
 
-    if (cnp_dec["S"] %in% c("7", "8")) {
-        birth_year <- stringr::str_c("__", cnp_dec["AA"])
-        return(birth_year)
-    }
+  if (cnp_dec["S"] %in% c("7", "8")) {
+    birth_year <- stringr::str_c("__", cnp_dec["AA"])
+    return(birth_year)
+  }
 }

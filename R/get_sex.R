@@ -23,37 +23,37 @@
 #' get_sex(c(5201206346491, 1940616346114, 7041218318525, NA))
 get_sex <- function(cnp) {
 
-    suppressMessages(
-        checks <- check_cnp_is_valid(cnp)
-    )
+  suppressMessages(
+    checks <- check_cnp_is_valid(cnp)
+  )
 
-    if (any(checks == FALSE, na.rm = TRUE)) {
-        invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
-        stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
+  if (any(checks == FALSE, na.rm = TRUE)) {
+    invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
+    stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
                                input vector has {invalid_cnps} invalid \\
                                values. For a detailed diagnosis use \\
                                check_cnp_is_valid()")
-        stop(stop_msg, call. = FALSE)
-    }
+    stop(stop_msg, call. = FALSE)
+  }
 
-    cnp_dec <- purrr::map(cnp, decompose_cnp)
+  cnp_dec <- purrr::map(cnp, decompose_cnp)
 
-    result <- purrr::map_chr(cnp_dec, get_sex_unvec)
+  result <- purrr::map_chr(cnp_dec, get_sex_unvec)
 
-    result
+  result
 }
 
 get_sex_unvec <- function(cnp_dec) {
 
-    if (is.na(cnp_dec[["S"]])) {
-        return(NA_character_)
-    }
+  if (is.na(cnp_dec[["S"]])) {
+    return(NA_character_)
+  }
 
-    if (cnp_dec["S"] %in% as.character(c(1, 3, 5, 7))) {
-        return("M")
-    }
+  if (cnp_dec["S"] %in% as.character(c(1, 3, 5, 7))) {
+    return("M")
+  }
 
-    if (cnp_dec["S"] %in% as.character(c(2, 4, 6, 8))) {
-        return("F")
-    }
+  if (cnp_dec["S"] %in% as.character(c(2, 4, 6, 8))) {
+    return("F")
+  }
 }
