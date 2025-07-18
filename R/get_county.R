@@ -17,12 +17,14 @@ get_county <- function(cnp) {
   )
 
   if (any(checks == FALSE, na.rm = TRUE)) {
+    # nolint start: object_usage_linter
     invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
     cli::cli_abort(
       "Please supply a vector of valid CNPs. The input vector has \\
       {invalid_cnps} invalid values. For a detailed diagnosis use \\
       {.code check_cnp_is_valid()}."
     )
+    # nolint end
   }
 
   cnp_dec <- purrr::map(cnp, decompose_cnp)
