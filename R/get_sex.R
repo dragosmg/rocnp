@@ -50,10 +50,12 @@ get_sex_unvec <- function(cnp_dec) {
   }
 
   if (cnp_dec["S"] %in% as.character(c(1, 3, 5, 7))) {
-    return("M")
+    sex <- "M"
   }
 
   if (cnp_dec["S"] %in% as.character(c(2, 4, 6, 8))) {
-    return("F")
+    sex <- "F"
   }
+
+  sex
 }

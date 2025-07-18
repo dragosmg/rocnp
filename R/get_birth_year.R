@@ -46,21 +46,19 @@ get_birth_year_unvec <- function(cnp_dec) {
 
   if (cnp_dec["S"] %in% as.character(c(1, 2))) {
     birth_year <- stringr::str_c(19, cnp_dec["AA"])
-    return(birth_year)
   }
 
   if (cnp_dec["S"] %in% as.character(c(3, 4))) {
     birth_year <- stringr::str_c(18, cnp_dec["AA"])
-    return(birth_year)
   }
 
   if (cnp_dec["S"] %in% as.character(c(5, 6))) {
     birth_year <- stringr::str_c(20, cnp_dec["AA"])
-    return(birth_year)
   }
 
   if (cnp_dec["S"] %in% c("7", "8")) {
     birth_year <- stringr::str_c("__", cnp_dec["AA"])
-    return(birth_year)
   }
+
+  birth_year
 }
