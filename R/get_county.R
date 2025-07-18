@@ -12,35 +12,37 @@
 #' get_county(7041218318525)
 get_county <- function(cnp) {
 
-    suppressMessages(
-        checks <- check_cnp_is_valid(cnp)
+  suppressMessages(
+    checks <- check_cnp_is_valid(cnp)
+  )
+
+  if (any(checks == FALSE, na.rm = TRUE)) {
+    # nolint start: object_usage_linter
+    invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
+    cli::cli_abort(
+      "Please supply a vector of valid CNPs. The input vector has \\
+      {invalid_cnps} invalid values. For a detailed diagnosis use \\
+      {.code check_cnp_is_valid()}."
     )
+    # nolint end
+  }
 
-    if (any(checks == FALSE, na.rm = TRUE)) {
-        invalid_cnps <- sum(checks == FALSE, na.rm = TRUE)
-        stop_msg <- glue::glue("Please supply a vector of valid CNPs. The \\
-                               input vector has {invalid_cnps} invalid \\
-                               values. For a detailed diagnosis use \\
-                               check_cnp_is_valid()")
-        stop(stop_msg, call. = FALSE)
-    }
+  cnp_dec <- purrr::map(cnp, decompose_cnp)
 
-    cnp_dec <- purrr::map(cnp, decompose_cnp)
+  result <- purrr::map_chr(cnp_dec, get_county_unvec)
 
-    result <- purrr::map_chr(cnp_dec, get_county_unvec)
-
-    result
+  result
 }
 
 get_county_unvec <- function(cnp_dec) {
 
-    county_code <- cnp_dec["JJ"]
+  county_code <- cnp_dec["JJ"]
 
-    if (is.na(cnp_dec[["JJ"]])) {
-        return(NA_character_)
-    }
+  if (is.na(cnp_dec[["JJ"]])) {
+    return(NA_character_)
+  }
 
-    county_lookup %>%
-        dplyr::filter(.data$code == county_code) %>%
-        dplyr::pull(.data$county)
+  county_lookup %>%
+    dplyr::filter(.data$code == county_code) %>%
+    dplyr::pull(.data$county)
 }

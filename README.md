@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/dragosmg/rocnp/workflows/R-CMD-check/badge.svg)](https://github.com/dragosmg/rocnp/actions)
+[![R-CMD-check](https://github.com/dragosmg/rocnp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dragosmg/rocnp/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/dragosmg/rocnp/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dragosmg/rocnp?branch=main)
+coverage](https://codecov.io/gh/dragosmg/rocnp/graph/badge.svg)](https://app.codecov.io/gh/dragosmg/rocnp)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
@@ -22,14 +22,12 @@ Romanian personal numeric codes.
 rocnp includes the following functionality for working with Romanian
 personal numeric codes (PNC / CNP):
 
--   check validity using `check_cnp_is_valid()`
--   decompose the code in the parts that make it up with
-    `decompose_cnp()`
--   extract the various components with the `get_()` family of
-    functions:
-    -   `get_birth_year()`
-    -   `get_birth_month()`
-    -   `get_county()`, etc.
+- check validity using `check_cnp_is_valid()`
+- decompose the code in the parts that make it up with `decompose_cnp()`
+- extract the various components with the `get_()` family of functions:
+  - `get_birth_year()`
+  - `get_birth_month()`
+  - `get_county()`, etc.
 
 ## Installation
 

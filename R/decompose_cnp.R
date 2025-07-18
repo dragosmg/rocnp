@@ -20,24 +20,24 @@
 #' decompose_cnp(6201206018078)
 #' decompose_cnp(5201206346491)
 decompose_cnp <- function(cnp) {
-    cnp_string <- as.character(cnp)
+  cnp_string <- as.character(cnp)
 
-    s <- stringr::str_sub(cnp_string, start = 1, end = 1)
+  s <- stringr::str_sub(cnp_string, start = 1, end = 1)
 
-    aa <- stringr::str_sub(cnp_string, start = 2, end = 3)
+  aa <- stringr::str_sub(cnp_string, start = 2, end = 3)
 
-    ll <- stringr::str_sub(cnp_string, start = 4, end = 5)
+  ll <- stringr::str_sub(cnp_string, start = 4, end = 5)
 
-    zz <- stringr::str_sub(cnp_string, start = 6, end = 7)
+  zz <- stringr::str_sub(cnp_string, start = 6, end = 7)
 
-    jj <- stringr::str_sub(cnp_string, start = 8, end = 9)
+  jj <- stringr::str_sub(cnp_string, start = 8, end = 9)
 
-    nnn <- stringr::str_sub(cnp_string, start = 10, end = 12)
+  nnn <- stringr::str_sub(cnp_string, start = 10, end = 12)
 
-    c <- stringr::str_sub(cnp_string, start = 13, end = 13)
+  c <- stringr::str_sub(cnp_string, start = 13, end = 13)
 
-    result <- c("S" = s, "AA" = aa, "LL" = ll, "ZZ" = zz, "JJ" = jj,
-                 "NNN" = nnn, "C" = c)
+  result <- c("S" = s, "AA" = aa, "LL" = ll, "ZZ" = zz, "JJ" = jj,
+              "NNN" = nnn, "C" = c)
 
-    result
+  result
 }
