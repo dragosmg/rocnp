@@ -15,7 +15,7 @@ a named character vector splitting the CNP into its components.
 }
 \description{
 A CNP is made up of 13 digits each with a specific meaning:
-* \code{S} - the first digit is indicative of gender
+* \code{S} - digit 1 encodes sex at birth
 * \code{AA} - digits 2-3 represent the last 2 digits of the year of birth
 * \code{LL} - digits 4-5 represent the month of birth
 * \code{ZZ} - digits 6-7 represent the day of birth
