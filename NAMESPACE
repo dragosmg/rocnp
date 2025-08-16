@@ -3,7 +3,6 @@
 S3method(format,cnp)
 export("%>%")
 export(check_cnp_is_valid)
-export(decompose_cnp)
 export(get_birth_month)
 export(get_birth_year)
 export(get_county)
