@@ -1,5 +1,8 @@
 #' Split the CNP into its components
 #'
+#' `decompose_cnp()` is a lower level helper that is used to break down a string
+#' representing a CNP into its components.
+#'
 #' A CNP is made up of 13 digits each with a specific meaning:
 #'     * `S` - digit 1 encodes sex at birth
 #'     * `AA` - digits 2-3 represent the last 2 digits of the year of birth
@@ -11,30 +14,30 @@
 #'     between people born on the same day in the same county
 #'     * `C` - digit 13 checksum
 #'
-#' @inheritParams get_sex
+#' @param x (character) a vector of CNPs.
 #'
-#' @return a named character vector splitting the CNP into its components.
-#' @export
+#' @return a list containing the CNP components and the full CNP.
+#' @keywords internal
 #'
 #' @examples
-#' decompose_cnp(6201206018078)
-#' decompose_cnp(5201206346491)
-decompose_cnp <- function(cnp) {
-  cnp_string <- as.character(cnp)
+#' rocnp:::decompose_cnp(6201206018078)
+#' rocnp:::decompose_cnp(5201206346491)
+decompose_cnp <- function(x) {
+  x <- as.character(x)
 
-  s <- stringr::str_sub(cnp_string, start = 1, end = 1)
+  s <- stringr::str_sub(x, start = 1, end = 1)
 
-  aa <- stringr::str_sub(cnp_string, start = 2, end = 3)
+  aa <- stringr::str_sub(x, start = 2, end = 3)
 
-  ll <- stringr::str_sub(cnp_string, start = 4, end = 5)
+  ll <- stringr::str_sub(x, start = 4, end = 5)
 
-  zz <- stringr::str_sub(cnp_string, start = 6, end = 7)
+  zz <- stringr::str_sub(x, start = 6, end = 7)
 
-  jj <- stringr::str_sub(cnp_string, start = 8, end = 9)
+  jj <- stringr::str_sub(x, start = 8, end = 9)
 
-  nnn <- stringr::str_sub(cnp_string, start = 10, end = 12)
+  nnn <- stringr::str_sub(x, start = 10, end = 12)
 
-  c <- stringr::str_sub(cnp_string, start = 13, end = 13)
+  c <- stringr::str_sub(x, start = 13, end = 13)
 
   output <- list(
     S = s,
@@ -44,7 +47,7 @@ decompose_cnp <- function(cnp) {
     JJ = jj,
     NNN = nnn,
     C = c,
-    cnp = cnp
+    cnp = x
   )
 
   output
