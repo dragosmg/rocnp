@@ -47,7 +47,7 @@ check_cnp_is_valid_unvec <- function(cnp) {
     return(FALSE)
   }
 
-  valid_months <- as.character(1:12) %>%
+  valid_months <- as.character(1:12) |>
     stringr::str_pad(width = 2, side = "left", pad = "0")
 
 
@@ -59,12 +59,12 @@ check_cnp_is_valid_unvec <- function(cnp) {
     return(FALSE)
   }
 
-  cnp_month <- cnp_dec["LL"] %>% as.numeric()
+  cnp_month <- cnp_dec["LL"] |> as.numeric()
   max_days_in_month <- tibble::tibble(
     month = 1:12,
     max_days = c(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
-  ) %>%
-    dplyr::filter(.data$month == cnp_month) %>%
+  ) |>
+    dplyr::filter(.data$month == cnp_month) |>
     dplyr::pull(.data$max_days)
 
   if (as.numeric(cnp_dec["ZZ"]) > max_days_in_month) {
