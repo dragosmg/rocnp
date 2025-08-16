@@ -1,7 +1,7 @@
 #' Split the CNP into its components
 #'
 #' A CNP is made up of 13 digits each with a specific meaning:
-#'     * `S` - the first digit is indicative of gender
+#'     * `S` - digit 1 encodes sex at birth
 #'     * `AA` - digits 2-3 represent the last 2 digits of the year of birth
 #'     * `LL` - digits 4-5 represent the month of birth
 #'     * `ZZ` - digits 6-7 represent the day of birth
@@ -36,8 +36,16 @@ decompose_cnp <- function(cnp) {
 
   c <- stringr::str_sub(cnp_string, start = 13, end = 13)
 
-  result <- c("S" = s, "AA" = aa, "LL" = ll, "ZZ" = zz, "JJ" = jj,
-              "NNN" = nnn, "C" = c)
+  output <- list(
+    S = s,
+    AA = aa,
+    LL = ll,
+    ZZ = zz,
+    JJ = jj,
+    NNN = nnn,
+    C = c,
+    cnp = cnp
+  )
 
-  result
+  output
 }
