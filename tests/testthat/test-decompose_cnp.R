@@ -1,29 +1,40 @@
 test_that("decompose_cnp works", {
   a <- decompose_cnp(1940616346114)
-  b <- c(S = "1", AA = "94", LL = "06", ZZ = "16", JJ = "34", NNN = "611",
-         C = "4")
-  expect_equal(a, b)
+  b <- list(
+    S = "1",
+    AA = "94",
+    LL = "06",
+    ZZ = "16",
+    JJ = "34",
+    NNN = "611",
+    C = "4",
+    cnp = "1940616346114"
+  )
 
-  c <- decompose_cnp(7041218318525)
-  d <- c(S = "7", AA = "04", LL = "12", ZZ = "18", JJ = "31", NNN = "852",
-         C = "5")
-  expect_equal(c, d)
+  expect_identical(
+    decompose_cnp(1940616346114),
+    list(
+      S = "1",
+      AA = "94",
+      LL = "06",
+      ZZ = "16",
+      JJ = "34",
+      NNN = "611",
+      C = "4",
+      cnp = "1940616346114"
+    )
+  )
 
-  e <- decompose_cnp(6201206018078)
-  f <- c(S = "6", AA = "20", LL = "12", ZZ = "06", JJ = "01", NNN = "807",
-         C = "8")
-  expect_equal(e, f)
-
-  g <- decompose_cnp(7321206018072)
-  h <- c(S = "7", AA = "32", LL = "12", ZZ = "06", JJ = "01", NNN = "807",
-         C = "2")
-  expect_equal(g, h)
-
-  i <- decompose_cnp(49804232603242)
-  j <- c(S = "4", AA = "98", LL = "04", ZZ = "23", JJ = "26", NNN = "032",
-         C = "4")
-  expect_equal(i, j)
-
+  expect_snapshot(
+    decompose_cnp(
+      c(
+        7041218318525,
+        6201206018078,
+        7321206018072,
+        49804232603242
+      )
+    )
+  )
 })
 
 test_that("decompose_cnp fails with incorrect input", {
