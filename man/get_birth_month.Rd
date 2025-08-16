@@ -17,9 +17,9 @@ a numeric vector representing the month of birth
 This function extracts the month of birth starting from the \code{"LL"} component.
 }
 \examples{
-get_birth_month(1940616346114)
-get_birth_month(7041218318525)
-cnps <- c(5201206346491, 1940616346114, 7041218318525, 6201206018078)
+get_birth_month(cnp(1940616346114))
+get_birth_month(cnp(7041218318525))
+cnps <- cnp(c(5201206346491, 1940616346114, 7041218318525, 6201206018078))
 get_birth_month(cnps)
-get_birth_month(c(5201206346491, 1940616346114, 7041218318525, NA))
+get_birth_month(cnp(c(5201206346491, 1940616346114, 7041218318525, NA)))
 }
