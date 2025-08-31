@@ -1,5 +1,5 @@
 validate_cnp <- function(x, call = rlang::caller_env()) {
-# browser()
+
   validate_nchar(x, call = call)
   validate_sex(x, call = call)
   validate_month(x, call = call)
@@ -64,36 +64,34 @@ validate_month <- function(x, call = rlang::caller_env()) {
 
 # validate the `zz` component representing the day of the month
 validate_day <- function(x, call = rlang::caller_env()) {
-  # TODO support leap years
-
   cnp_month_df <- tibble::tibble(
-    cnp_month = vctrs::field(x, "ll"),
-    cnp_day = vctrs::field(x, "zz")
-  )
-
-  max_days_in_month <- tibble::tibble(
-    month = as.character(1:12),
-    max_days = c(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+    year = vctrs::field(x, "yob"),
+    month = vctrs::field(x, "ll"),
+    day = vctrs::field(x, "zz")
   ) |>
-    dplyr::mutate(
-      month = stringr::str_pad(
-        month,
-        width = 2,
-        side = "left",
-        pad = "0"
+    dplyr::left_join(
+      days_in_month,
+      by = dplyr::join_by(
+        "month" == "month"
       )
+    ) |>
+    dplyr::mutate(
+      leap_year = lubridate::leap_year(
+        as.integer(
+          year
+        )
+      ),
+      max_dd = dplyr::if_else(
+        leap_year,
+        days_leap,
+        days_non_leap
+      ),
+      valid = day <= max_dd
     )
 
+
+
   valid_day <- cnp_month_df |>
-    dplyr::left_join(
-      max_days_in_month,
-      by = dplyr::join_by(
-        cnp_month == month
-      )
-    ) |>
-    dplyr::mutate(
-      valid = cnp_day <= max_days
-    ) |>
     dplyr::pull(valid)
 
   if (!all(valid_day, na.rm = TRUE)) {

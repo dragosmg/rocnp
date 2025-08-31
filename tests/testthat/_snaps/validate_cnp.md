@@ -65,6 +65,14 @@
 ---
 
     Code
+      validate_day(new_cnp("197022946114"))
+    Condition
+      Error:
+      ! The day of birth field -zz- cannot exceed the number of days in that calendar month.
+
+---
+
+    Code
       validate_day(new_cnp("7040230318525"))
     Condition
       Error:
