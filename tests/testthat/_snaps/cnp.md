@@ -1,3 +1,11 @@
+# new_cnp() works
+
+    Code
+      new_cnp(c("1940616346114", "7041218318525"))
+    Output
+      <cnp[2]>
+      [1] 1940616346114 7041218318525
+
 # new_cnp() complains when input is not character
 
     Code
