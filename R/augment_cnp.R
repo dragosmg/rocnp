@@ -62,7 +62,7 @@ parse_yob <- function(x) {
       )
     )
 
-  x[["yob"]] <- dplyr::pull(yob_df, birth_year)
+  x[["yob"]] <- dplyr::pull(yob_df, .data$birth_year)
 
   x
 }
@@ -75,10 +75,10 @@ parse_dob <- function(x) {
   ) |>
     dplyr::mutate(
       dob = glue::glue("{yob}-{month}-{day}"),
-      dob = lubridate::ymd(dob, quiet = TRUE)
+      dob = lubridate::ymd(.data$dob, quiet = TRUE)
     )
 
-  x[["dob"]] <- dplyr::pull(dob_df, dob)
+  x[["dob"]] <- dplyr::pull(dob_df, .data$dob)
 
   x
 }
@@ -95,7 +95,7 @@ parse_county <- function(x) {
       )
     )
 
-  x[["county"]] <- dplyr::pull(county_df, county)
+  x[["county"]] <- dplyr::pull(county_df, .data$county)
 
   x
 }
