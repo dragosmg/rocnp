@@ -4,15 +4,15 @@
 #' representing a CNP into its components.
 #'
 #' A CNP is made up of 13 digits each with a specific meaning:
-#'     * `S` - digit 1 encodes sex at birth
-#'     * `AA` - digits 2-3 represent the last 2 digits of the year of birth
-#'     * `LL` - digits 4-5 represent the month of birth
-#'     * `ZZ` - digits 6-7 represent the day of birth
-#'     * `JJ` - digits 8-9 represent the county of birth (for native Romanians)
-#'     or the county of issue (for residents)
-#'     * `NNN`- digits 10-12 number between 001 and 999 used to differentiate
-#'     between people born on the same day in the same county
-#'     * `C` - digit 13 checksum
+#'  * `S` - digit 1 encodes sex at birth
+#'  * `AA` - digits 2-3 represent the last 2 digits of the year of birth
+#'  * `LL` - digits 4-5 represent the month of birth
+#'  * `ZZ` - digits 6-7 represent the day of birth
+#'  * `JJ` - digits 8-9 represent the county of birth (for native Romanians)
+#'  or the county of issue (for residents)
+#'  * `NNN`- digits 10-12 number between 001 and 999 used to differentiate
+#'  between people born on the same day in the same county
+#'  * `C` - digit 13 checksum
 #'
 #' @param x (character) a vector of CNPs.
 #'
@@ -40,13 +40,13 @@ decompose_cnp <- function(x) {
   c <- stringr::str_sub(x, start = 13, end = 13)
 
   output <- list(
-    S = s,
-    AA = aa,
-    LL = ll,
-    ZZ = zz,
-    JJ = jj,
-    NNN = nnn,
-    C = c,
+    s = s,
+    aa = aa,
+    ll = ll,
+    zz = zz,
+    jj = jj,
+    nnn = nnn,
+    c = c,
     cnp = x
   )
 
