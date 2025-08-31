@@ -19,6 +19,7 @@ Imports:
     cli,
     dplyr,
     glue,
+    lubridate,
     purrr,
     rlang,
     stringr,
