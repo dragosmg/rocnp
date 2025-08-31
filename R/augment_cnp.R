@@ -14,6 +14,7 @@ augment_cnp <- function(x) {
 
   output <- x |>
     parse_sex() |>
+    parse_yob() |>
     parse_dob()
 
   output
@@ -32,12 +33,11 @@ parse_sex <- function(x) {
   x
 }
 
-parse_dob <- function(x) {
-
+parse_yob <- function(x) {
   current_year <- lubridate::today() |>
     lubridate::year() - 2000
 
-  dob_df <- tibble::tibble(
+  yob_df <- tibble::tibble(
     sex = x[["s"]],
     year = x[["aa"]],
     month = x[["ll"]],
@@ -54,9 +54,26 @@ parse_dob <- function(x) {
       )
     ) |>
     dplyr::mutate(
-      birth_year = stringr::str_c(century_digits, year),
-      dob = glue::glue("{birth_year}-{month}-{day}"),
-      dob = lubridate::ymd(dob)
+      birth_year = stringr::str_c(century_digits, year)
+    )
+
+  yob <- dplyr::pull(yob_df, birth_year)
+
+  x$yob <- yob
+
+  x
+}
+
+parse_dob <- function(x) {
+
+  dob_df <- tibble::tibble(
+    yob = x[["yob"]],
+    month = x[["ll"]],
+    day = x[["zz"]]
+  ) |>
+    dplyr::mutate(
+      dob = glue::glue("{yob}-{month}-{day}"),
+      dob = lubridate::ymd(dob, quiet = TRUE)
     )
 
   dob <- dplyr::pull(dob_df, dob)
