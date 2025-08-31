@@ -29,14 +29,14 @@ test_that("get_county works", {
     "Alba"
   )
 
-  expect_equal(
+  expect_identical(
     get_county(
       new_cnp("7321206018072")
     ),
     "Alba"
   )
 
-  expect_equal(
+  expect_identical(
     get_county(
       new_cnp(
         "4980423260322"
@@ -45,7 +45,7 @@ test_that("get_county works", {
     "Mureș"
   )
 
-  expect_equal(
+  expect_identical(
     get_county(
       new_cnp(
         valid_cnps

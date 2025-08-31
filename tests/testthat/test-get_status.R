@@ -3,7 +3,7 @@ test_that("get_status works", {
   valid_cnps <- c("1940616346114", "7041218318525", "4980423260322", NA)
   status_vec <- c("native", "resident", "native", NA)
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         valid_cnps
@@ -12,7 +12,7 @@ test_that("get_status works", {
     status_vec
   )
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         "6201206018078"
@@ -21,7 +21,7 @@ test_that("get_status works", {
     "native"
   )
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         "5201206346491"
@@ -30,7 +30,7 @@ test_that("get_status works", {
     "native"
   )
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         "1940616346114"
@@ -39,7 +39,7 @@ test_that("get_status works", {
     "native"
   )
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         "1940616346114"
@@ -48,7 +48,7 @@ test_that("get_status works", {
     "native"
   )
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         "7041218318525"
@@ -57,7 +57,7 @@ test_that("get_status works", {
     "resident"
   )
 
-  expect_equal(
+  expect_identical(
     get_status(
       new_cnp(
         "7041218318525"

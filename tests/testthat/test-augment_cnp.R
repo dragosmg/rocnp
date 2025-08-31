@@ -8,7 +8,7 @@ test_that("parse_sex() works", {
     c("s", "sex")
   )
 
-  expect_equal(
+  expect_identical(
     parse_sex(cnp)[["sex"]],
     c("M", "F", "M", "F", "M", "F", "M", "F")
   )

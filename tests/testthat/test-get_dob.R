@@ -43,7 +43,7 @@ test_that("get_dob works", {
     as.Date("1898-04-23")
   )
 
-  expect_equal(
+  expect_identical(
     get_dob(
       new_cnp(
         valid_cnps

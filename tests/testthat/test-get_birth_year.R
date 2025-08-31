@@ -11,7 +11,7 @@ test_that("get_birth_year works", {
     birth_year_vec
   )
 
-  expect_equal(
+  expect_identical(
     get_birth_year(
       new_cnp(
         "1940616346114"
@@ -20,7 +20,7 @@ test_that("get_birth_year works", {
     "1994"
   )
 
-  expect_equal(
+  expect_identical(
     get_birth_year(
       new_cnp(
         "7041218318525"
@@ -29,7 +29,7 @@ test_that("get_birth_year works", {
     "2004"
   )
 
-  expect_equal(
+  expect_identical(
     get_birth_year(
       new_cnp(
         "6201206018078"
@@ -38,7 +38,7 @@ test_that("get_birth_year works", {
     "2020"
   )
 
-  expect_equal(
+  expect_identical(
     get_birth_year(
       new_cnp(
         "7321206018072"
@@ -47,7 +47,7 @@ test_that("get_birth_year works", {
     "1932"
   )
 
-  expect_equal(
+  expect_identical(
     get_birth_year(
       new_cnp(
         "4980423260322"
