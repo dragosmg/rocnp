@@ -1,16 +1,18 @@
 validate_cnp <- function(x, call = rlang::caller_env()) {
 # browser()
   validate_nchar(x, call = call)
+  validate_sex(x, call = call)
+  validate_month(x, call = call)
+  validate_day(x, call = call)
 
-  decomposed_cnp <- decompose_cnp(x)
-
-  validate_sex(decomposed_cnp, call = call)
-  validate_month(decomposed_cnp, call = call)
-  validate_day(decomposed_cnp, call = call)
+  x
 }
 
 validate_nchar <- function(x, call = rlang::caller_env()) {
-  if (any(nchar(x) != 13, na.rm = TRUE)) {
+
+  cnp <- vctrs::field(x, "cnp")
+
+  if (any(nchar(cnp) != 13, na.rm = TRUE)) {
     cli::cli_abort(
       "Each element of {.arg x} must have exactly 13 characters.",
       call = rlang::caller_env()
@@ -23,11 +25,13 @@ validate_nchar <- function(x, call = rlang::caller_env()) {
 # validate the `s` component representing sex
 validate_sex <- function(x, call = rlang::caller_env()) {
 
-  valid_sex_characters <- c(as.character(1:8), NA)
+  sex <- vctrs::field(x, "s")
 
-  if (any(!x[["s"]] %in% valid_sex_characters)) {
+  valid_sex_digits <- c(as.character(1:8), NA)
+
+  if (any(!sex %in% valid_sex_digits)) {
     cli::cli_abort(
-      "The sex field -{.field s}- must be between 1 and 8.",
+      "The sex at birth field -{.field s}- must be between 1 and 8.",
       call = call
     )
   }
@@ -37,6 +41,9 @@ validate_sex <- function(x, call = rlang::caller_env()) {
 
 # validate the `ll` component representing the month
 validate_month <- function(x, call = rlang::caller_env()) {
+
+  cnp_month <- vctrs::field(x, "ll")
+
   valid_months <- stringr::str_pad(
     as.character(1:12),
     width = 2,
@@ -45,9 +52,9 @@ validate_month <- function(x, call = rlang::caller_env()) {
   ) |>
     c(NA)
 
-  if (any(!(x[["ll"]] %in% valid_months))) {
+  if (any(!(cnp_month %in% valid_months))) {
     cli::cli_abort(
-      "The months field -{.field ll}- must be between '01' and '12'.",
+      "The month of birth field -{.field ll}- must be between '01' and '12'.",
       call = call
     )
   }
@@ -57,10 +64,11 @@ validate_month <- function(x, call = rlang::caller_env()) {
 
 # validate the `zz` component representing the day of the month
 validate_day <- function(x, call = rlang::caller_env()) {
+  # TODO support leap years
 
   cnp_month_df <- tibble::tibble(
-    cnp_month = x[["ll"]],
-    cnp_day = x[["zz"]]
+    cnp_month = vctrs::field(x, "ll"),
+    cnp_day = vctrs::field(x, "zz")
   )
 
   max_days_in_month <- tibble::tibble(
@@ -90,11 +98,64 @@ validate_day <- function(x, call = rlang::caller_env()) {
 
   if (!all(valid_day, na.rm = TRUE)) {
     cli::cli_abort(
-      "The day field -{.field zz} exceedes the maximum number of days for at \\
-      least one CNP.",
+      "The day of birth field -{.field zz}- cannot exceed the number of days \\
+      in that calendar month.",
       call = call
     )
   }
 
   invisible(x)
+}
+
+validate_checksum <- function(x, call = rlang::caller_env()) {
+
+  checksum_df <- tibble::tibble(
+    cnp_init = x,
+    cnp = vctrs::field(x, "cnp")
+  ) |>
+    dplyr::mutate(
+      cnp_digits = stringr::str_extract_all(cnp, "[0-9]"),
+      cnp_digits = purrr::map(cnp_digits, as.integer),
+      first_12_digits = purrr::map(cnp_digits, ~ .x[1:12]),
+      last_digit = purrr::map(cnp_digits, ~.x[13]),
+      last_digit = as.integer(last_digit),
+      checksum = purrr::map(first_12_digits, calculate_checksum),
+      checksum = as.integer(checksum),
+      valid = checksum == last_digit
+    ) |>
+    dplyr::select(
+      cnp_init,
+      valid
+    )
+
+  if (any(!checksum_df$valid, na.rm = TRUE)) {
+    cli::cli_abort(
+      "At least one value failed the checksum test.",
+      call = call
+    )
+  }
+}
+
+calculate_checksum <- function(x, call = rlang::caller_env()) {
+
+  if (any(is.na(x))) {
+    return(NA)
+  }
+
+  if (any(length(x) != 12, na.rm = TRUE)) {
+    cli::cli_abort(
+      "{.arg x} must be made up of 12 digits",
+      call = call
+    )
+  }
+
+  remainder <- sum(x * c(2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)) %% 11
+
+  checksum <- dplyr::if_else(
+    remainder == 10,
+    1,
+    remainder
+  )
+
+  checksum
 }
