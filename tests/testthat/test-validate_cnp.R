@@ -1,5 +1,5 @@
 test_that("validate_cnp() works", {
-  expect_identical(2 * 2, 4)
+  expect_identical(2L * 2L, 4L)
 })
 
 test_that("validate_nchar() works", {
