@@ -10,13 +10,12 @@
 #'
 #' @examples
 augment_cnp <- function(x) {
-  # browser()
-
   output <- x |>
     parse_sex() |>
     parse_yob() |>
     parse_dob() |>
-    parse_county()
+    parse_county() |>
+    parse_status()
 
   output
 }
@@ -64,7 +63,6 @@ parse_yob <- function(x) {
 }
 
 parse_dob <- function(x) {
-
   dob_df <- tibble::tibble(
     yob = x[["yob"]],
     month = x[["ll"]],
@@ -81,7 +79,7 @@ parse_dob <- function(x) {
 }
 
 parse_county <- function(x) {
-# browser()
+
   county_df <- tibble::tibble(
     code = x[["jj"]]
   ) |>
@@ -93,6 +91,19 @@ parse_county <- function(x) {
     )
 
   x[["county"]] <- dplyr::pull(county_df, county)
+
+  x
+}
+
+parse_status <- function(x) {
+  sex_field <- x[["s"]]
+
+  status <- dplyr::case_when(
+    sex_field %in% c("1", "2", "3", "4", "5", "6") ~ "native",
+    sex_field %in% c("7", "8") ~ "resident"
+  )
+
+  x[["status"]] <- status
 
   x
 }

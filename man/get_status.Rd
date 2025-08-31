@@ -4,16 +4,14 @@
 \alias{get_status}
 \title{Extract Residence Status from the Personal Numeric Code}
 \usage{
-get_status(cnp, lang = c("RO", "EN"))
+get_status(cnp)
 }
 \arguments{
 \item{cnp}{(\code{cnp}) a \code{cnp} vector.}
-
-\item{lang}{a string denoting the language for the status - either \code{RO} for
-Romanian (the default) or \code{EN} for English.}
 }
 \value{
-a string denoting residence status in the language of choice
+a character vector containing the residence status: \code{"native"} or
+\code{"resident"}.
 }
 \description{
 Extract Residence Status from the Personal Numeric Code

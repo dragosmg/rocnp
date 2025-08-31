@@ -28,13 +28,13 @@ test_that("the cnp object has the expected fields", {
     vctrs::fields(codes),
     c(
       "s", "aa", "ll", "zz", "jj", "nnn", "c", "cnp", "sex", "yob", "dob",
-      "county"
+      "county", "status"
     )
   )
 
   expect_identical(
     vctrs::n_fields(codes),
-    12L
+    13L
   )
 })
 
