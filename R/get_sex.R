@@ -1,8 +1,6 @@
-#' Extract the Sex from the Personal Numeric Code
+#' Extract Sex from the Personal Numeric Code
 #'
-#' This function extracts the sex based on the `S` component of the CNP.
-#' Romanian authorities define sex as binary. In the event of a sex change a
-#' new CNP could be issued.
+#' Extract the sex based on the `S` component of the CNP.
 #'
 #' @param cnp (`cnp`) a `cnp` vector.
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_sex.R
 \name{get_sex}
 \alias{get_sex}
-\title{Extract the Sex from the Personal Numeric Code}
+\title{Extract Sex from the Personal Numeric Code}
 \usage{
 get_sex(cnp)
 }
@@ -13,9 +13,7 @@ get_sex(cnp)
 a character vector of the parsed sex: \code{M} or \code{F}.
 }
 \description{
-This function extracts the sex based on the \code{S} component of the CNP.
-Romanian authorities define sex as binary. In the event of a sex change a
-new CNP could be issued.
+Extract the sex based on the \code{S} component of the CNP.
 }
 \examples{
 get_sex(new_cnp("1940616346114"))

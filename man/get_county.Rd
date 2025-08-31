@@ -10,14 +10,17 @@ get_county(cnp)
 \item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 }
 \value{
-a string representing the name of the county where the CNP was issued
+a character vector containing the names of the counties where the
+CNPs were issued.
 }
 \description{
-Extract County of Issue from the Personal Numeric Code
+Extract the county based on the \code{JJ} component of the CNP and parse it.
 }
 \examples{
-get_county(6201206018078)
-get_county(5201206346491)
-get_county(1940616346114)
-get_county(7041218318525)
+get_county(new_cnp("1940616346114"))
+get_county(new_cnp("7041218318525"))
+get_county(new_cnp("6201206018078"))
+get_county(new_cnp("5201206346491"))
+get_county(new_cnp(c("5201206346491", "1940616346114", "7041218318525")))
+get_county(new_cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
 }
