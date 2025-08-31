@@ -8,7 +8,7 @@ new_cnp <- function(x = character())  {
       call = rlang::caller_env()
     )
   }
-# browser()
+
   decomposed_cnp <- decompose_cnp(x)
 
   augmented_cnp <- augment_cnp(decomposed_cnp)
