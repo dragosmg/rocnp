@@ -19,4 +19,8 @@ th input list with a series of additional fields:
 \description{
 Parse the CNP fields
 }
+\examples{
+rocnp:::decompose_cnp(c("1940616346114", "7041218318525")) |>
+  rocnp:::augment_cnp()
+}
 \keyword{internal}

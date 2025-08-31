@@ -110,18 +110,18 @@ validate_checksum <- function(x, call = rlang::caller_env()) {
     cnp = vctrs::field(x, "cnp")
   ) |>
     dplyr::mutate(
-      cnp_digits = stringr::str_extract_all(cnp, "[0-9]"),
-      cnp_digits = purrr::map(cnp_digits, as.integer),
-      first_12_digits = purrr::map(cnp_digits, ~ .x[1:12]),
-      last_digit = purrr::map(cnp_digits, ~.x[13]),
-      last_digit = as.integer(last_digit),
-      checksum = purrr::map(first_12_digits, calculate_checksum),
-      checksum = as.integer(checksum),
-      valid = checksum == last_digit
+      cnp_digits = stringr::str_extract_all(.data$cnp, "[0-9]"),
+      cnp_digits = purrr::map(.data$cnp_digits, as.integer),
+      first_12_digits = purrr::map(.data$cnp_digits, ~ .x[1:12]),
+      last_digit = purrr::map(.data$cnp_digits, ~.x[13]),
+      last_digit = as.integer(.data$last_digit),
+      checksum = purrr::map(.data$first_12_digits, calculate_checksum),
+      checksum = as.integer(.data$checksum),
+      valid = .data$checksum == .data$last_digit
     ) |>
     dplyr::select(
-      cnp_init,
-      valid
+      "cnp_init",
+      "valid"
     )
 
   if (any(!checksum_df$valid, na.rm = TRUE)) {
