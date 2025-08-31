@@ -1,5 +1,9 @@
 # rocnp (development version)
 
+* A complete overhaul of the package and its functionality:
+  * A new S3 class called `cnp`.
+  * `decompose_cnp()` is no longer exported. 
+
 # rocnp 0.1.0
 
 * The main functions:
