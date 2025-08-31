@@ -42,7 +42,7 @@ get_county_unvec <- function(cnp_dec) {
     return(NA_character_)
   }
 
-  county_lookup %>%
-    dplyr::filter(.data$code == county_code) %>%
+  county_lookup |>
+    dplyr::filter(.data$code == county_code) |>
     dplyr::pull(.data$county)
 }
