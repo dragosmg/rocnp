@@ -16,10 +16,10 @@ a character vector of the parsed sex: \code{M} or \code{F}.
 Extract the sex based on the \code{S} component of the CNP.
 }
 \examples{
-get_sex(new_cnp("1940616346114"))
-get_sex(new_cnp("7041218318525"))
-get_sex(new_cnp("6201206018078"))
-get_sex(new_cnp("5201206346491"))
-get_sex(new_cnp(c("5201206346491", "1940616346114", "7041218318525")))
-get_sex(new_cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
+get_sex(cnp("1940616346114"))
+get_sex(cnp("7041218318525"))
+get_sex(cnp("6201206018078"))
+get_sex(cnp("5201206346491"))
+get_sex(cnp(c("5201206346491", "1940616346114", "7041218318525")))
+get_sex(cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
 }

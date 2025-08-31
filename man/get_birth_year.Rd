@@ -10,18 +10,15 @@ get_birth_year(cnp)
 \item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 }
 \value{
-a character vector representing the year of birth (the century is
-unknown for non-natives)
+a character vector representing the year of birth.
 }
 \description{
-This function infers the year of birth based on the code for sex - which
-is also indicative of the century of birth - and the \code{AA} component denoting
-the final 2 digits of the birth year. The year is returned as string,
-especially since for residents not born in Romania, there might be two
-possible valid values for the birth year - in this case the year is returned
-as \code{"__yy"}
+Extract the year of birth, inferred starting from the \code{S} component, the
+code for sex - which is also indicative of the century of birth - and the
+\code{AA} component denoting the final 2 digits of the birth year. The year is
+returned as string,
 }
 \examples{
-get_birth_year(1940616346114)
-get_birth_year(7041218318525)
+get_birth_year(cnp("1940616346114"))
+get_birth_year(cnp("7041218318525"))
 }
