@@ -78,21 +78,19 @@ validate_day <- function(x, call = rlang::caller_env()) {
     dplyr::mutate(
       leap_year = lubridate::leap_year(
         as.integer(
-          year
+          .data$year
         )
       ),
       max_dd = dplyr::if_else(
-        leap_year,
-        days_leap,
-        days_non_leap
+        .data$leap_year,
+        .data$days_leap,
+        .data$days_non_leap
       ),
-      valid = day <= max_dd
+      valid = .data$day <= .data$max_dd
     )
 
-
-
   valid_day <- cnp_month_df |>
-    dplyr::pull(valid)
+    dplyr::pull(.data$valid)
 
   if (!all(valid_day, na.rm = TRUE)) {
     cli::cli_abort(
