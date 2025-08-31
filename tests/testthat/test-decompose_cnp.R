@@ -1,26 +1,26 @@
 test_that("decompose_cnp works", {
   a <- decompose_cnp(1940616346114)
   b <- list(
-    S = "1",
-    AA = "94",
-    LL = "06",
-    ZZ = "16",
-    JJ = "34",
-    NNN = "611",
-    C = "4",
+    s = "1",
+    aa = "94",
+    ll = "06",
+    zz = "16",
+    jj = "34",
+    nnn = "611",
+    c = "4",
     cnp = "1940616346114"
   )
 
   expect_identical(
     decompose_cnp(1940616346114),
     list(
-      S = "1",
-      AA = "94",
-      LL = "06",
-      ZZ = "16",
-      JJ = "34",
-      NNN = "611",
-      C = "4",
+      s = "1",
+      aa = "94",
+      ll = "06",
+      zz = "16",
+      jj = "34",
+      nnn = "611",
+      c = "4",
       cnp = "1940616346114"
     )
   )
@@ -37,6 +37,3 @@ test_that("decompose_cnp works", {
   )
 })
 
-test_that("decompose_cnp fails with incorrect input", {
-  expect_equal(2 * 2, 4)
-})
