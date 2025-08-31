@@ -10,7 +10,7 @@ get_sex(cnp)
 \item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 }
 \value{
-a character vector of the recorded sex: \code{M} or \code{F}.
+a character vector of the parsed sex: \code{M} or \code{F}.
 }
 \description{
 This function extracts the sex based on the \code{S} component of the CNP.
