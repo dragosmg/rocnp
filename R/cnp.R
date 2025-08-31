@@ -34,7 +34,7 @@ cnp <- function(x = character()) {
 
   x <- as.character(x)
 
-  if (any(nchar(x) != 13, na.rm = TRUE)) {
+  if (any(nchar(x) != 13L, na.rm = TRUE)) {
     cli::cli_abort(
       "Each element of {.arg x} must have exactly 13 characters."
     )

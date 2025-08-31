@@ -37,7 +37,7 @@ parse_sex <- function(x) {
 
 parse_yob <- function(x) {
   current_year <- lubridate::today() |>
-    lubridate::year() - 2000
+    lubridate::year() - 2000L
 
   yob_df <- tibble::tibble(
     sex = x[["s"]],

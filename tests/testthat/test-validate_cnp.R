@@ -206,8 +206,8 @@ test_that("calculate_cheksum() works", {
   cnp_string <- c("1940616346114", "7041218318525")
 
   cnp_digits <- list(
-    c(1, 9, 4, 0, 6, 1, 6, 3, 4, 6, 1, 1),
-    c(7, 0, 4, 1, 2, 1, 8, 3, 1, 8, 5, 2),
+    c(1L, 9L, 4L, 0L, 6L, 1L, 6L, 3L, 4L, 6L, 1L, 1L),
+    c(7L, 0L, 4L, 1L, 2L, 1L, 8L, 3L, 1L, 8L, 5L, 2L),
     NA
   )
 

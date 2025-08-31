@@ -7,8 +7,8 @@ get_cnp_checksum <- function(cnp) {
 
   remainder <- sum(mult_cnp) %% 11
 
-  if (remainder == 10) {
-    11 - remainder
+  if (remainder == 10L) {
+    11L - remainder
   } else {
     remainder
   }

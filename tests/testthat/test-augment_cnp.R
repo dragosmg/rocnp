@@ -1,6 +1,6 @@
 test_that("parse_sex() works", {
   cnp <- list(
-    s = as.character(1:8)
+    s = as.character(1L:8L)
   )
 
   expect_named(

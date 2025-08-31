@@ -12,7 +12,7 @@ validate_nchar <- function(x, call = rlang::caller_env()) {
 
   cnp <- vctrs::field(x, "cnp")
 
-  if (any(nchar(cnp) != 13, na.rm = TRUE)) {
+  if (any(nchar(cnp) != 13L, na.rm = TRUE)) {
     cli::cli_abort(
       "Each element of {.arg x} must have exactly 13 characters.",
       call = rlang::caller_env()
@@ -27,7 +27,7 @@ validate_sex <- function(x, call = rlang::caller_env()) {
 
   sex <- vctrs::field(x, "s")
 
-  valid_sex_digits <- c(as.character(1:8), NA)
+  valid_sex_digits <- c(as.character(1L:8L), NA)
 
   if (any(!sex %in% valid_sex_digits)) {
     cli::cli_abort(
@@ -45,8 +45,8 @@ validate_month <- function(x, call = rlang::caller_env()) {
   cnp_month <- vctrs::field(x, "ll")
 
   valid_months <- stringr::str_pad(
-    as.character(1:12),
-    width = 2,
+    as.character(1L:12L),
+    width = 2L,
     side = "left",
     pad = "0"
   ) |>
@@ -112,8 +112,8 @@ validate_checksum <- function(x, call = rlang::caller_env()) {
     dplyr::mutate(
       cnp_digits = stringr::str_extract_all(.data$cnp, "[0-9]"),
       cnp_digits = purrr::map(.data$cnp_digits, as.integer),
-      first_12_digits = purrr::map(.data$cnp_digits, ~ .x[1:12]),
-      last_digit = purrr::map(.data$cnp_digits, ~.x[13]),
+      first_12_digits = purrr::map(.data$cnp_digits, ~ .x[1L:12L]),
+      last_digit = purrr::map(.data$cnp_digits, ~.x[13L]),
       last_digit = as.integer(.data$last_digit),
       checksum = purrr::map(.data$first_12_digits, calculate_checksum),
       checksum = as.integer(.data$checksum),
@@ -138,18 +138,20 @@ calculate_checksum <- function(x, call = rlang::caller_env()) {
     return(NA)
   }
 
-  if (any(length(x) != 12, na.rm = TRUE)) {
+  if (any(length(x) != 12L, na.rm = TRUE)) {
     cli::cli_abort(
       "{.arg x} must be made up of 12 digits",
       call = call
     )
   }
 
-  remainder <- sum(x * c(2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)) %% 11
+  mult_cnp <- x * c(2L, 7L, 9L, 1L, 4L, 6L, 3L, 5L, 8L, 2L, 7L, 9L)
+
+  remainder <- sum(mult_cnp) %% 11L
 
   checksum <- dplyr::if_else(
-    remainder == 10,
-    1,
+    remainder == 10L,
+    1L,
     remainder
   )
 

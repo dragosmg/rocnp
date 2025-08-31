@@ -1,14 +1,14 @@
 ## code to prepare `days_in_month` dataset goes here
 
 days_in_month <- tibble::tibble(
-  month = as.character(1:12),
-  days_non_leap = c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31),
-  days_leap = c(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+  month = as.character(1L:12L),
+  days_non_leap = c(31L, 28L, 31L, 30L, 31L, 30L, 31L, 31L, 30L, 31L, 30L, 31L),
+  days_leap = c(31L, 29L, 31L, 30L, 31L, 30L, 31L, 31L, 30L, 31L, 30L, 31L)
 ) |>
   dplyr::mutate(
     month = stringr::str_pad(
       month,
-      width = 2,
+      width = 2L,
       side = "left",
       pad = "0"
     )

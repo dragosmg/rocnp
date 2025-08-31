@@ -41,7 +41,7 @@ test_that("the cnp object has the expected fields", {
 test_that("new_cnp() complains when input is not character", {
   expect_snapshot(
     error = TRUE,
-    new_cnp(1:2)
+    new_cnp(1L:2L)
   )
 })
 

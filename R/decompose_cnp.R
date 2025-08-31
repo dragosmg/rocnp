@@ -25,19 +25,19 @@
 decompose_cnp <- function(x) {
   x <- as.character(x)
 
-  s <- stringr::str_sub(x, start = 1, end = 1)
+  s <- stringr::str_sub(x, start = 1L, end = 1L)
 
-  aa <- stringr::str_sub(x, start = 2, end = 3)
+  aa <- stringr::str_sub(x, start = 2L, end = 3L)
 
-  ll <- stringr::str_sub(x, start = 4, end = 5)
+  ll <- stringr::str_sub(x, start = 4L, end = 5L)
 
-  zz <- stringr::str_sub(x, start = 6, end = 7)
+  zz <- stringr::str_sub(x, start = 6L, end = 7L)
 
-  jj <- stringr::str_sub(x, start = 8, end = 9)
+  jj <- stringr::str_sub(x, start = 8L, end = 9L)
 
-  nnn <- stringr::str_sub(x, start = 10, end = 12)
+  nnn <- stringr::str_sub(x, start = 10L, end = 12L)
 
-  c <- stringr::str_sub(x, start = 13, end = 13)
+  c <- stringr::str_sub(x, start = 13L, end = 13L)
 
   output <- list(
     s = s,

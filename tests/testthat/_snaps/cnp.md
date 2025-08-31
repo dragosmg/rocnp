@@ -9,7 +9,7 @@
 # new_cnp() complains when input is not character
 
     Code
-      new_cnp(1:2)
+      new_cnp(1L:2L)
     Condition
       Error:
       ! `x` must be a character. You have supplied a a string.
