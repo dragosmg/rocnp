@@ -15,7 +15,8 @@ augment_cnp <- function(x) {
   output <- x |>
     parse_sex() |>
     parse_yob() |>
-    parse_dob()
+    parse_dob() |>
+    parse_county()
 
   output
 }
@@ -28,7 +29,7 @@ parse_sex <- function(x) {
     sex_field %in% c("2", "4", "6", "8") ~ "F"
   )
 
-  x$sex <- sex
+  x[["sex"]] <- sex
 
   x
 }
@@ -57,9 +58,7 @@ parse_yob <- function(x) {
       birth_year = stringr::str_c(century_digits, year)
     )
 
-  yob <- dplyr::pull(yob_df, birth_year)
-
-  x$yob <- yob
+  x[["yob"]] <- dplyr::pull(yob_df, birth_year)
 
   x
 }
@@ -76,9 +75,24 @@ parse_dob <- function(x) {
       dob = lubridate::ymd(dob, quiet = TRUE)
     )
 
-  dob <- dplyr::pull(dob_df, dob)
+  x[["dob"]] <- dplyr::pull(dob_df, dob)
 
-  x$dob <- dob
+  x
+}
+
+parse_county <- function(x) {
+# browser()
+  county_df <- tibble::tibble(
+    code = x[["jj"]]
+  ) |>
+    dplyr::left_join(
+      county_lookup,
+      by = dplyr::join_by(
+        "code" == "code"
+      )
+    )
+
+  x[["county"]] <- dplyr::pull(county_df, county)
 
   x
 }
