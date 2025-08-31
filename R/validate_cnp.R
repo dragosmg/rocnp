@@ -29,7 +29,7 @@ validate_sex <- function(x, call = rlang::caller_env()) {
 
   valid_sex_digits <- c(as.character(1L:8L), NA)
 
-  if (any(!sex %in% valid_sex_digits)) {
+  if (!all(sex %in% valid_sex_digits)) {
     cli::cli_abort(
       "The sex at birth field -{.field s}- must be between 1 and 8.",
       call = call
@@ -52,7 +52,7 @@ validate_month <- function(x, call = rlang::caller_env()) {
   ) |>
     c(NA)
 
-  if (any(!(cnp_month %in% valid_months))) {
+  if (!all(cnp_month %in% valid_months)) {
     cli::cli_abort(
       "The month of birth field -{.field ll}- must be between '01' and '12'.",
       call = call
@@ -89,8 +89,7 @@ validate_day <- function(x, call = rlang::caller_env()) {
       valid = .data$day <= .data$max_dd
     )
 
-  valid_day <- cnp_month_df |>
-    dplyr::pull(.data$valid)
+  valid_day <- dplyr::pull(cnp_month_df, .data$valid)
 
   if (!all(valid_day, na.rm = TRUE)) {
     cli::cli_abort(
@@ -124,7 +123,7 @@ validate_checksum <- function(x, call = rlang::caller_env()) {
       "valid"
     )
 
-  if (any(!checksum_df$valid, na.rm = TRUE)) {
+  if (!all(checksum_df$valid, na.rm = TRUE)) {
     cli::cli_abort(
       "At least one value failed the checksum test.",
       call = call
@@ -134,7 +133,7 @@ validate_checksum <- function(x, call = rlang::caller_env()) {
 
 calculate_checksum <- function(x, call = rlang::caller_env()) {
 
-  if (any(is.na(x))) {
+  if (anyNA(x)) {
     return(NA)
   }
 
