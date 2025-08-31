@@ -7,8 +7,7 @@
 check_cnp_is_valid(cnp)
 }
 \arguments{
-\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
-the Personal Numeric Code - CNP}
+\item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 }
 \value{
 a logical vector (\code{TRUE}, \code{FALSE} or \code{NA})

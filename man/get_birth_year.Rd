@@ -7,8 +7,7 @@
 get_birth_year(cnp)
 }
 \arguments{
-\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
-the Personal Numeric Code - CNP}
+\item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 }
 \value{
 a character vector representing the year of birth (the century is

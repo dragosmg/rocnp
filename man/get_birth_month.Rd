@@ -7,8 +7,7 @@
 get_birth_month(cnp)
 }
 \arguments{
-\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
-the Personal Numeric Code - CNP}
+\item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 }
 \value{
 a numeric vector representing the month of birth

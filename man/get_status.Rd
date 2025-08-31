@@ -7,8 +7,7 @@
 get_status(cnp, lang = c("RO", "EN"))
 }
 \arguments{
-\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
-the Personal Numeric Code - CNP}
+\item{cnp}{(\code{cnp}) a \code{cnp} vector.}
 
 \item{lang}{a string denoting the language for the status - either \code{RO} for
 Romanian (the default) or \code{EN} for English.}
