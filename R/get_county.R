@@ -9,12 +9,12 @@
 #' @export
 #'
 #' @examples
-#' get_county(new_cnp("1940616346114"))
-#' get_county(new_cnp("7041218318525"))
-#' get_county(new_cnp("6201206018078"))
-#' get_county(new_cnp("5201206346491"))
-#' get_county(new_cnp(c("5201206346491", "1940616346114", "7041218318525")))
-#' get_county(new_cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
+#' get_county(cnp("1940616346114"))
+#' get_county(cnp("7041218318525"))
+#' get_county(cnp("6201206018078"))
+#' get_county(cnp("5201206346491"))
+#' get_county(cnp(c("5201206346491", "1940616346114", "7041218318525")))
+#' get_county(cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
 get_county <- function(cnp) {
   vctrs::field(cnp, "county")
 }
