@@ -1,7 +1,7 @@
 # extract_sex() complains with a non-`cnp` input
 
     Code
-      extract_sex(1:5)
+      extract_sex(1L:5L)
     Condition
       Error in `extract_sex()`:
       ! `x` must be a `cnp` vector. You have supplied a a string.
@@ -25,7 +25,7 @@
 # extract_birth_year() complains with a non-`cnp` input
 
     Code
-      extract_birth_year(1:5)
+      extract_birth_year(1L:5L)
     Condition
       Error in `extract_birth_year()`:
       ! `x` must be a `cnp` vector. You have supplied a a string.
@@ -49,7 +49,7 @@
 # extract_birth_month() complains with a non-`cnp` input
 
     Code
-      extract_birth_month(1:5)
+      extract_birth_month(1L:5L)
     Condition
       Error in `extract_birth_month()`:
       ! `x` must be a `cnp` vector. You have supplied a a string.
@@ -73,7 +73,7 @@
 # extract_dob() complains with a non-`cnp` input
 
     Code
-      extract_dob(1:5)
+      extract_dob(1L:5L)
     Condition
       Error in `extract_dob()`:
       ! `x` must be a `cnp` vector. You have supplied a a string.
@@ -97,7 +97,7 @@
 # extract_county() complains with a non-`cnp` input
 
     Code
-      extract_county(1:5)
+      extract_county(1L:5L)
     Condition
       Error in `extract_county()`:
       ! `x` must be a `cnp` vector. You have supplied a a string.
@@ -121,7 +121,7 @@
 # extract_status() complains with a non-`cnp` input
 
     Code
-      extract_status(1:5)
+      extract_status(1L:5L)
     Condition
       Error in `extract_status()`:
       ! `x` must be a `cnp` vector. You have supplied a a string.
