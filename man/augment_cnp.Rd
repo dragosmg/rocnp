@@ -2,9 +2,24 @@
 % Please edit documentation in R/augment_cnp.R
 \name{augment_cnp}
 \alias{augment_cnp}
+\alias{parse_sex}
+\alias{parse_yob}
+\alias{parse_dob}
+\alias{parse_county}
+\alias{parse_status}
 \title{Parse the CNP fields}
 \usage{
 augment_cnp(x)
+
+parse_sex(x)
+
+parse_yob(x)
+
+parse_dob(x)
+
+parse_county(x)
+
+parse_status(x)
 }
 \arguments{
 \item{x}{(list) a decomposed CNP.}
@@ -17,7 +32,14 @@ th input list with a series of additional fields:
 }
 }
 \description{
-Parse the CNP fields
+Augment the CNPs by parsing and adding the following components:
+\itemize{
+\item \code{sex}: processed with \code{parse_sex()}
+\item \code{yob}: year of birth, \code{parse_yob()}
+\item \code{dob}: date of birth, \code{parse_dob()}
+\item \code{county}: county of birth, \code{parse_county()}
+\item \code{status}: status, indicating \code{resident} or \code{native} \code{parse_status()}
+}
 }
 \examples{
 rocnp:::decompose_cnp(c("1940616346114", "7041218318525")) |>

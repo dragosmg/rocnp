@@ -1,5 +1,12 @@
 #' Parse the CNP fields
 #'
+#' Augment the CNPs by parsing and adding the following components:
+#'   * `sex`: processed with `parse_sex()`
+#'   * `yob`: year of birth, `parse_yob()`
+#'   * `dob`: date of birth, `parse_dob()`
+#'   * `county`: county of birth, `parse_county()`
+#'   * `status`: status, indicating `resident` or `native` `parse_status()`
+#'
 #' @param x (list) a decomposed CNP.
 #'
 #' @return th input list with a series of additional fields:
@@ -22,6 +29,7 @@ augment_cnp <- function(x) {
   output
 }
 
+#' @rdname augment_cnp
 parse_sex <- function(x) {
   # nolint start: object_usage_linter
   sex_field <- x[["s"]]
@@ -37,6 +45,7 @@ parse_sex <- function(x) {
   x
 }
 
+#' @rdname augment_cnp
 parse_yob <- function(x) {
   # nolint start: object_usage_linter
   cur_year <- lubridate::today() |>
@@ -69,6 +78,7 @@ parse_yob <- function(x) {
   x
 }
 
+#' @rdname augment_cnp
 parse_dob <- function(x) {
   dob_df <- tibble::tibble(
     yob = x[["yob"]],
@@ -85,6 +95,7 @@ parse_dob <- function(x) {
   x
 }
 
+#' @rdname augment_cnp
 parse_county <- function(x) {
 
   county_df <- tibble::tibble(
@@ -102,6 +113,7 @@ parse_county <- function(x) {
   x
 }
 
+#' @rdname augment_cnp
 parse_status <- function(x) {
   # nolint start: object_usage_linter
   sex_field <- x[["s"]]
