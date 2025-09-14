@@ -22,13 +22,13 @@
 #' (encoding the final 2 digits of the birth year) components of the CNP.
 #' * `extract_birth_month()` extracts the month of birth based on the `"LL"`
 #' component.
-#' * `extract_county()` get the county of issue (based on the `JJ` component).
-#' * `extract_status()` extract the residence status (based on the `S`
+#' * `extract_county()` gets the county of issue (based on the `JJ` component).
+#' * `extract_status()` extracts the residence status (based on the `S`
 #' component)
 #'
 #' This function returns a date vector:
 #'
-#' * `extract_dob()` get the date of birth (based on the `S`, `AA`, `LL`, and
+#' * `extract_dob()` gets the date of birth (based on the `S`, `AA`, `LL`, and
 #' `ZZ` components).
 #'
 #' @param x a `cnp` vector.

@@ -47,14 +47,14 @@ component of the CNP.
 (encoding the final 2 digits of the birth year) components of the CNP.
 \item \code{extract_birth_month()} extracts the month of birth based on the \code{"LL"}
 component.
-\item \code{extract_county()} get the county of issue (based on the \code{JJ} component).
-\item \code{extract_status()} extract the residence status (based on the \code{S}
+\item \code{extract_county()} gets the county of issue (based on the \code{JJ} component).
+\item \code{extract_status()} extracts the residence status (based on the \code{S}
 component)
 }
 
 This function returns a date vector:
 \itemize{
-\item \code{extract_dob()} get the date of birth (based on the \code{S}, \code{AA}, \code{LL}, and
+\item \code{extract_dob()} gets the date of birth (based on the \code{S}, \code{AA}, \code{LL}, and
 \code{ZZ} components).
 }
 }
