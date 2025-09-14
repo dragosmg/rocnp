@@ -15,19 +15,27 @@ status](https://www.r-pkg.org/badges/version/rocnp)](https://CRAN.R-project.org/
 <!-- badges: end -->
 
 The goal of {rocnp} is to provide a set of functions for working with
-Romanian personal numeric codes.
+Romanian Personal Numeric Codes / Coduri Numerice Personale (CNP).
 
 ## Features
 
 rocnp includes the following functionality for working with Romanian
 personal numeric codes (PNC / CNP):
 
-- check validity using `check_cnp_is_valid()`
-- decompose the code in the parts that make it up with `decompose_cnp()`
-- extract the various components with the `get_()` family of functions:
-  - `get_birth_year()`
-  - `get_birth_month()`
-  - `get_county()`, etc.
+- an S3 class called `cnp`:
+  - implemented as a record (similar to `POSIXlt`) with
+    `vctrs::new_rcrd()`. The implementation details are
+- a constructor, `cnp()` for creating a `cnp` object
+- the constructor automatically decomposes the CNP and augments it by
+  parsing the various field
+- access the various components with the `extract_()` family of
+  functions:
+  - use `extract_sex()` for sex.
+  - `extract_birth_year()` for the year of birth.
+  - `extract_birth_month()` for the month of birth.
+  - `extract_county()` for county of issue.
+  - `extract_status()` for the residence status.
+  - `extract_dob()` for the date of birth.
 
 ## Installation
 
@@ -42,8 +50,8 @@ Alternatively, if you need the development version from
 [GitHub](https://github.com/dragosmg/rocnp), install it with
 
 ``` r
-# install.packages(devtools)
-devtools::install_dev("rocnp")
+# install.packages("pak")
+pak::pkg_install("dragosmg/rocnp")
 ```
 
 ## Usage
@@ -56,23 +64,22 @@ library(rocnp)
 
 # these are synthetically generated CNPs
 # check CNP is valid
-check_cnp_is_valid(1940616346114)
-#> [1] TRUE
+cnps <- cnp(
+  c(
+    "1940616346114", "6201206018078", "1940616346114"
+  )
+)
 
-# split CNP into components
-decompose_cnp(6201206018078)
-#>     S    AA    LL    ZZ    JJ   NNN     C 
-#>   "6"  "20"  "12"  "06"  "01" "807"   "8"
-
-# extract birth year 
-get_birth_year(1940616346114)
-#> [1] "1994"
-
-# extract birth month
-get_birth_month(1940616346114)
-#> [1] 6
-
-# extract county 
-get_county(6201206018078)
-#> [1] "Alba"
+extract_sex(cnps)
+#> [1] "M" "F" "M"
+extract_birth_year(cnps)
+#> [1] "1994" "2020" "1994"
+extract_birth_month(cnps)
+#> [1] "06" "12" "06"
+extract_dob(cnps)
+#> [1] "1994-06-16" "2020-12-06" "1994-06-16"
+extract_county(cnps)
+#> [1] "Teleorman" "Alba"      "Teleorman"
+extract_status(cnps)
+#> [1] "native" "native" "native"
 ```
