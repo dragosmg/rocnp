@@ -43,8 +43,7 @@ You can install the released version of {rocnp} from
 [CRAN](https://CRAN.R-project.org):
 
 ``` r
-# install.packages("pak")
-pak::pkg_install("rocnp")
+install.packages("rocnp")
 ```
 
 Alternatively, if you need the development version from

@@ -22,8 +22,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/rocnp)](https://CRAN.R-project.org/package=rocnp)
 <!-- badges: end -->
 
-The goal of {rocnp} is to provide a set of functions for working with Romanian
-Personal Numeric Codes / Coduri Numerice Personale (CNP). 
+The goal of {rocnp} is to provide a set of functions for working with Romanian Personal Numeric Codes / Coduri Numerice Personale (CNP). 
 
 ## Features
 
@@ -46,8 +45,7 @@ rocnp includes the following functionality for working with Romanian personal nu
 You can install the released version of {rocnp} from [CRAN](https://CRAN.R-project.org):
 
 ``` r
-# install.packages("pak")
-pak::pkg_install("rocnp")
+install.packages("rocnp")
 ```
 
 Alternatively, if you need the development version from [GitHub](https://github.com/dragosmg/rocnp), install it with
