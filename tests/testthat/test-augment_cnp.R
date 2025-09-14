@@ -85,3 +85,25 @@ test_that("parse_status() works", {
     c("native", "resident", "native", NA)
   )
 })
+
+test_that("augment_cnp() works", {
+  valid_cnp <- c("1940616346114", "7041218318525", "4980423260322", NA)
+
+  expect_snapshot(
+    valid_cnp |>
+      decompose_cnp() |>
+      augment_cnp()
+  )
+
+  cnp <- valid_cnp |>
+    decompose_cnp() |>
+    augment_cnp()
+
+  expect_named(
+    cnp,
+    c(
+      "s", "aa", "ll", "zz", "jj", "nnn", "c", "cnp", "sex", "yob", "dob",
+      "county", "status"
+    )
+  )
+})

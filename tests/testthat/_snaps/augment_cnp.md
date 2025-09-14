@@ -133,3 +133,48 @@
       [1] "native"   "resident" "native"   NA        
       
 
+# augment_cnp() works
+
+    Code
+      augment_cnp(decompose_cnp(valid_cnp))
+    Output
+      $s
+      [1] "1" "7" "4" NA 
+      
+      $aa
+      [1] "94" "04" "98" NA  
+      
+      $ll
+      [1] "06" "12" "04" NA  
+      
+      $zz
+      [1] "16" "18" "23" NA  
+      
+      $jj
+      [1] "34" "31" "26" NA  
+      
+      $nnn
+      [1] "611" "852" "032" NA   
+      
+      $c
+      [1] "4" "5" "2" NA 
+      
+      $cnp
+      [1] "1940616346114" "7041218318525" "4980423260322" NA             
+      
+      $sex
+      [1] "M" "M" "F" NA 
+      
+      $yob
+      [1] "1994" "2004" "1898" NA    
+      
+      $dob
+      [1] "1994-06-16" "2004-12-18" "1898-04-23" NA          
+      
+      $county
+      [1] "Teleorman" "Sălaj"     "Mureș"     NA         
+      
+      $status
+      [1] "native"   "resident" "native"   NA        
+      
+
