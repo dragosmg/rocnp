@@ -48,3 +48,7 @@ cnp <- function(x = character()) {
 format.cnp <- function(x, ...) {
   vctrs::field(x, "cnp")
 }
+
+is_cnp <- function(x) {
+  inherits(x, "cnp")
+}
