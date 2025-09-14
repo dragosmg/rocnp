@@ -30,12 +30,11 @@ test_that("parse_yob() works", {
 test_that("parse_dob() works", {
   valid_cnp <- c("1940616346114", "7041218318525", "4980423260322", NA)
 
-  expect_snapshot(
-    valid_cnp |>
-      decompose_cnp() |>
-      parse_yob() |>
-      parse_dob()
-  )
+  valid_cnp |>
+    decompose_cnp() |>
+    parse_yob() |>
+    parse_dob() |>
+    expect_snapshot()
 
   cnp <-  valid_cnp |>
     decompose_cnp() |>
@@ -51,11 +50,10 @@ test_that("parse_dob() works", {
 test_that("parse_county() works", {
   valid_cnp <- c("1940616346114", "7041218318525", "4980423260322", NA)
 
-  expect_snapshot(
-    valid_cnp |>
-      decompose_cnp() |>
-      parse_county()
-  )
+  valid_cnp |>
+    decompose_cnp() |>
+    parse_county() |>
+    expect_snapshot()
 
   cnp <- valid_cnp |>
     decompose_cnp() |>
@@ -70,11 +68,10 @@ test_that("parse_county() works", {
 test_that("parse_status() works", {
   valid_cnp <- c("1940616346114", "7041218318525", "4980423260322", NA)
 
-  expect_snapshot(
-    valid_cnp |>
-      decompose_cnp() |>
-      parse_status()
-  )
+  valid_cnp |>
+    decompose_cnp() |>
+    parse_status() |>
+    expect_snapshot()
 
   cnp <- valid_cnp |>
     decompose_cnp() |>
@@ -89,11 +86,10 @@ test_that("parse_status() works", {
 test_that("augment_cnp() works", {
   valid_cnp <- c("1940616346114", "7041218318525", "4980423260322", NA)
 
-  expect_snapshot(
-    valid_cnp |>
-      decompose_cnp() |>
-      augment_cnp()
-  )
+  valid_cnp |>
+    decompose_cnp() |>
+    augment_cnp() |>
+    expect_snapshot()
 
   cnp <- valid_cnp |>
     decompose_cnp() |>

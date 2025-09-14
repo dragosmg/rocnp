@@ -50,7 +50,9 @@
 #' extract_sex(cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
 #'
 #' # Extract birth year
-#' extract_birth_year(cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
+#' extract_birth_year(
+#'   cnp(c("5201206346491", "1940616346114", "7041218318525", NA))
+#' )
 #'
 #' # Extract birth month
 #' extract_birth_month(cnp(c(5201206346491, 1940616346114, 7041218318525, NA)))

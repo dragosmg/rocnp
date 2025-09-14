@@ -56,7 +56,7 @@ test_that("extract_sex() works", {
 test_that("extract_sex() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
-    extract_sex(1:5)
+    extract_sex(1L:5L)
   )
 
   expect_snapshot(
@@ -134,7 +134,7 @@ test_that("extract_birth_year() works", {
 test_that("extract_birth_year() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
-    extract_birth_year(1:5)
+    extract_birth_year(1L:5L)
   )
 
   expect_snapshot(
@@ -171,7 +171,7 @@ test_that("extract_birth_month() works", {
 test_that("extract_birth_month() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
-    extract_birth_month(1:5)
+    extract_birth_month(1L:5L)
   )
 
   expect_snapshot(
@@ -245,7 +245,7 @@ test_that("extract_dob() works", {
 test_that("extract_dob() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
-    extract_dob(1:5)
+    extract_dob(1L:5L)
   )
 
   expect_snapshot(
@@ -321,7 +321,7 @@ test_that("extract_county() works", {
 test_that("extract_county() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
-    extract_county(1:5)
+    extract_county(1L:5L)
   )
 
   expect_snapshot(
@@ -409,7 +409,7 @@ test_that("extract_status() works", {
 test_that("extract_status() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
-    extract_status(1:5)
+    extract_status(1L:5L)
   )
 
   expect_snapshot(
