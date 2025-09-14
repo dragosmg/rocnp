@@ -1,5 +1,14 @@
 test_that("validate_cnp() works", {
-  expect_identical(2L * 2L, 4L)
+  expect_no_error(
+    validate_cnp(
+      new_cnp(
+        c(
+          "1940616346114",
+          "7041218318525"
+        )
+      )
+    )
+  )
 })
 
 test_that("validate_nchar() works", {
@@ -218,5 +227,20 @@ test_that("calculate_cheksum() works", {
     ),
     # the last 2 digits of the original CNPs
     c(4L, 5L, NA)
+  )
+})
+
+test_that("calculate_checksum() complains", {
+  # too many digits
+  expect_snapshot(
+    error = TRUE,
+    calculate_checksum(
+      new_cnp(
+        c(
+          "19406163461132",
+          "70412183185223"
+        )
+      )
+    )
   )
 })

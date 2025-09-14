@@ -86,3 +86,11 @@
       Error:
       ! At least one value failed the checksum test.
 
+# calculate_checksum() complains
+
+    Code
+      calculate_checksum(new_cnp(c("19406163461132", "70412183185223")))
+    Condition
+      Error:
+      ! `x` must be made up of 12 digits
+
