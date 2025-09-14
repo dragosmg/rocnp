@@ -14,16 +14,17 @@ License: MIT + file LICENSE
 URL: https://github.com/dragosmg/rocnp
 BugReports: https://github.com/dragosmg/rocnp/issues
 Depends: 
-    R (>= 3.5.0)
+    R (>= 4.1.0)
 Imports: 
     cli,
     dplyr,
     glue,
-    magrittr,
+    lubridate,
     purrr,
     rlang,
     stringr,
-    tibble
+    tibble,
+    vctrs
 Suggests: 
     covr,
     testthat (>= 3.0.0)

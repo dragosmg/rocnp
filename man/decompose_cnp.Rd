@@ -4,28 +4,34 @@
 \alias{decompose_cnp}
 \title{Split the CNP into its components}
 \usage{
-decompose_cnp(cnp)
+decompose_cnp(x)
 }
 \arguments{
-\item{cnp}{a 13-digit number (or a vector of 13-digit numbers) representing
-the Personal Numeric Code - CNP}
+\item{x}{(character) a vector of CNPs.}
 }
 \value{
-a named character vector splitting the CNP into its components.
+a list containing the CNP components and the full CNP.
 }
 \description{
+\code{decompose_cnp()} is a lower level helper that is used to break down a string
+representing a CNP into its components.
+}
+\details{
 A CNP is made up of 13 digits each with a specific meaning:
-* \code{S} - the first digit is indicative of gender
-* \code{AA} - digits 2-3 represent the last 2 digits of the year of birth
-* \code{LL} - digits 4-5 represent the month of birth
-* \code{ZZ} - digits 6-7 represent the day of birth
-* \code{JJ} - digits 8-9 represent the county of birth (for native Romanians)
+\itemize{
+\item \code{S} - digit 1 encodes sex at birth
+\item \code{AA} - digits 2-3 represent the last 2 digits of the year of birth
+\item \code{LL} - digits 4-5 represent the month of birth
+\item \code{ZZ} - digits 6-7 represent the day of birth
+\item \code{JJ} - digits 8-9 represent the county of birth (for native Romanians)
 or the county of issue (for residents)
-* \code{NNN}- digits 10-12 number between 001 and 999 used to differentiate
+\item \code{NNN}- digits 10-12 number between 001 and 999 used to differentiate
 between people born on the same day in the same county
-* \code{C} - digit 13 checksum
+\item \code{C} - digit 13 checksum
+}
 }
 \examples{
-decompose_cnp(6201206018078)
-decompose_cnp(5201206346491)
+rocnp:::decompose_cnp(6201206018078)
+rocnp:::decompose_cnp(5201206346491)
 }
+\keyword{internal}

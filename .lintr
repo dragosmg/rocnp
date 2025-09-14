@@ -1,3 +1,5 @@
-linters: linters_with_defaults(
-   cyclocomp_linter = cyclocomp_linter(15)
-  )
+linters: all_linters(packages = "lintr") # see vignette("lintr")
+encoding: "UTF-8"
+exclusions: list(
+    "tests/testthat.R"
+  ) # see ?lintr::exclude
