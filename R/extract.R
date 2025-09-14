@@ -1,5 +1,3 @@
-
-
 # * `S` - digit 1 encodes sex at birth
 # * `AA` - digits 2-3 represent the last 2 digits of the year of birth
 # * `LL` - digits 4-5 represent the month of birth

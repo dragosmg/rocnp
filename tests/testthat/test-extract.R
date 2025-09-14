@@ -53,7 +53,7 @@ test_that("extract_sex() works", {
   )
 })
 
-test_that("extract_sex() complains when the input is not a `cnp` object", {
+test_that("extract_sex() complains with a non-`cnp` input", {
   expect_snapshot(
     error = TRUE,
     extract_sex(1:5)
@@ -131,6 +131,25 @@ test_that("extract_birth_year() works", {
   )
 })
 
+test_that("extract_birth_year() complains with a non-`cnp` input", {
+  expect_snapshot(
+    error = TRUE,
+    extract_birth_year(1:5)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_birth_year(letters)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_birth_year(
+      c(TRUE, FALSE, FALSE)
+    )
+  )
+})
+
 test_that("extract_birth_month() works", {
 
   valid_cnps <- cnp(c(1940616346114, 7041218318525, 4980423260322, NA))
@@ -146,6 +165,25 @@ test_that("extract_birth_month() works", {
       cnp(1940616346114)
     ),
     "06"
+  )
+})
+
+test_that("extract_birth_month() complains with a non-`cnp` input", {
+  expect_snapshot(
+    error = TRUE,
+    extract_birth_month(1:5)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_birth_month(letters)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_birth_month(
+      c(TRUE, FALSE, FALSE)
+    )
   )
 })
 
@@ -201,6 +239,25 @@ test_that("extract_dob() works", {
       )
     ),
     dob_vec
+  )
+})
+
+test_that("extract_dob() complains with a non-`cnp` input", {
+  expect_snapshot(
+    error = TRUE,
+    extract_dob(1:5)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_dob(letters)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_dob(
+      c(TRUE, FALSE, FALSE)
+    )
   )
 })
 
@@ -261,7 +318,26 @@ test_that("extract_county() works", {
   )
 })
 
-test_that("extract_status works", {
+test_that("extract_county() complains with a non-`cnp` input", {
+  expect_snapshot(
+    error = TRUE,
+    extract_county(1:5)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_county(letters)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_county(
+      c(TRUE, FALSE, FALSE)
+    )
+  )
+})
+
+test_that("extract_status() works", {
 
   valid_cnps <- c("1940616346114", "7041218318525", "4980423260322", NA)
   status_vec <- c("native", "resident", "native", NA)
@@ -327,5 +403,24 @@ test_that("extract_status works", {
       )
     ),
     "resident"
+  )
+})
+
+test_that("extract_status() complains with a non-`cnp` input", {
+  expect_snapshot(
+    error = TRUE,
+    extract_status(1:5)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_status(letters)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_status(
+      c(TRUE, FALSE, FALSE)
+    )
   )
 })
