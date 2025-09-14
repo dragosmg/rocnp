@@ -1,6 +1,6 @@
 Package: rocnp
 Title: Work with Romanian Personal Numeric Codes PNC / CNP
-Version: 0.1.0.9000
+Version: 0.1.0.9001
 Authors@R: 
     person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", role = c("aut", "cre", "cph"))
 Description: A set of tools for working with Romanian personal numeric
