@@ -9,20 +9,20 @@
 \alias{extract_status}
 \title{Extract CNP components}
 \usage{
-extract_sex(cnp)
+extract_sex(x)
 
-extract_birth_year(cnp)
+extract_birth_year(x)
 
-extract_birth_month(cnp)
+extract_birth_month(x)
 
-extract_dob(cnp)
+extract_dob(x)
 
-extract_county(cnp)
+extract_county(x)
 
-extract_status(cnp)
+extract_status(x)
 }
 \arguments{
-\item{cnp}{a \code{cnp} vector.}
+\item{x}{a \code{cnp} vector.}
 }
 \value{
 \itemize{

@@ -53,6 +53,25 @@ test_that("extract_sex() works", {
   )
 })
 
+test_that("extract_sex() complains when the input is not a `cnp` object", {
+  expect_snapshot(
+    error = TRUE,
+    extract_sex(1:5)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_sex(letters)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    extract_sex(
+      c(TRUE, FALSE, FALSE)
+    )
+  )
+})
+
 test_that("extract_birth_year() works", {
   valid_cnps <- c("1940616346114", "7041218318525", "4980423260322", NA)
   birth_year_vec <- c("1994", "2004", "1898", NA)

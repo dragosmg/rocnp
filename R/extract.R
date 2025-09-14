@@ -33,7 +33,7 @@
 #' * `extract_dob()` get the date of birth (based on the `S`, `AA`, `LL`, and
 #' `ZZ` components).
 #'
-#' @param cnp a `cnp` vector.
+#' @param x a `cnp` vector.
 #'
 #' @return
 #' * `extract_sex()`: a character vector containing the parsed sex: `M` or `F`.
@@ -66,36 +66,78 @@
 #' # Extract residence status
 #' extract_status(cnp(c("5201206346491", "1940616346114", "7041218318525", NA)))
 #'
-extract_sex <- function(cnp) {
-  vctrs::field(cnp, "sex")
+extract_sex <- function(x) {
+  if (!is_cnp(x)) {
+    cli::cli_abort(
+      "{.arg x} must be a {.code cnp} vector. You have supplied a \\
+      {.obj_type_friendly x}."
+    )
+  }
+
+  vctrs::field(x, "sex")
 }
 
 #' @export
 #' @rdname extract_sex
-extract_birth_year <- function(cnp) {
-  vctrs::field(cnp, "yob")
+extract_birth_year <- function(x) {
+  if (!is_cnp(x)) {
+    cli::cli_abort(
+      "{.arg x} must be a {.code cnp} vector. You have supplied a \\
+      {.obj_type_friendly x}."
+    )
+  }
+
+  vctrs::field(x, "yob")
 }
 
 #' @export
 #' @rdname extract_sex
-extract_birth_month <- function(cnp) {
-  vctrs::field(cnp, "ll")
+extract_birth_month <- function(x) {
+  if (!is_cnp(x)) {
+    cli::cli_abort(
+      "{.arg x} must be a {.code cnp} vector. You have supplied a \\
+      {.obj_type_friendly x}."
+    )
+  }
+
+  vctrs::field(x, "ll")
 }
 
 #' @export
 #' @rdname extract_sex
-extract_dob <- function(cnp) {
-  vctrs::field(cnp, "dob")
+extract_dob <- function(x) {
+  if (!is_cnp(x)) {
+    cli::cli_abort(
+      "{.arg x} must be a {.code cnp} vector. You have supplied a \\
+      {.obj_type_friendly x}."
+    )
+  }
+
+  vctrs::field(x, "dob")
 }
 
 #' @export
 #' @rdname extract_sex
-extract_county <- function(cnp) {
-  vctrs::field(cnp, "county")
+extract_county <- function(x) {
+  if (!is_cnp(x)) {
+    cli::cli_abort(
+      "{.arg x} must be a {.code cnp} vector. You have supplied a \\
+      {.obj_type_friendly x}."
+    )
+  }
+
+  vctrs::field(x, "county")
 }
 
 #' @export
 #' @rdname extract_sex
-extract_status <- function(cnp) {
-  vctrs::field(cnp, "status")
+extract_status <- function(x) {
+  if (!is_cnp(x)) {
+    cli::cli_abort(
+      "{.arg x} must be a {.code cnp} vector. You have supplied a \\
+      {.obj_type_friendly x}."
+    )
+  }
+
+  vctrs::field(x, "status")
 }
