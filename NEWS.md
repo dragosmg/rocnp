@@ -12,6 +12,7 @@
     * `extract_county()` gets the county of issue.
     * `extract_status()` extracts the residence status.
     * `extract_dob()` gets the date of birth.
+* Added a pkgdown website.
 
 # rocnp 0.1.0
 

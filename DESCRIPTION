@@ -1,6 +1,6 @@
 Package: rocnp
 Title: Work with Romanian Personal Numeric Codes PNC / CNP
-Version: 0.1.0.9001
+Version: 0.1.0.9002
 Authors@R: 
     person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", role = c("aut", "cre", "cph"))
 Description: A set of tools for working with Romanian personal numeric
@@ -11,7 +11,7 @@ Description: A set of tools for working with Romanian personal numeric
     Romanian residents either at birth or when they obtain a residence
     permit.
 License: MIT + file LICENSE
-URL: https://github.com/dragosmg/rocnp
+URL: https://github.com/dragosmg/rocnp, https://dragosmg.github.io/rocnp/
 BugReports: https://github.com/dragosmg/rocnp/issues
 Depends: 
     R (>= 4.1.0)
