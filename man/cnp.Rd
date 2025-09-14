@@ -2,20 +2,33 @@
 % Please edit documentation in R/cnp.R
 \name{cnp}
 \alias{cnp}
+\alias{is_cnp}
 \title{Create a \code{cnp} object}
 \usage{
 cnp(x = character())
+
+is_cnp(x)
 }
 \arguments{
 \item{x}{(character) a character (or values that can be cast to character)
 vector of personal numeric codes (CNPs).}
 }
 \value{
-a vector of class \code{cnp}.
+\itemize{
+\item \code{cnp()}: a vector of class \code{cnp}.
+\item \code{is_cnp()}: a logical vector.
+}
 }
 \description{
-Create a \code{cnp} object
+\itemize{
+\item \code{cnp()} is used to build a \code{cnp} vector
+\item \code{is_cnp} is used to check whether a vector is of class \code{cnp}
+}
 }
 \examples{
-cnp(c("1940616346114", "7041218318525"))
+a <- cnp(c("1940616346114", "7041218318525"))
+
+is_cnp(a)
+
+is_cnp(1L:3L)
 }

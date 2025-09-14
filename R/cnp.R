@@ -22,14 +22,25 @@ new_cnp <- function(x = character())  {
 
 #' Create a `cnp` object
 #'
+#' @description
+#' * `cnp()` is used to build a `cnp` vector
+#' * `is_cnp` is used to check whether a vector is of class `cnp`
+#'
 #' @param x (character) a character (or values that can be cast to character)
 #'   vector of personal numeric codes (CNPs).
 #'
-#' @return a vector of class `cnp`.
+#' @return
+#' * `cnp()`: a vector of class `cnp`.
+#' * `is_cnp()`: a logical vector.
+#'
 #' @export
 #'
 #' @examples
-#' cnp(c("1940616346114", "7041218318525"))
+#' a <- cnp(c("1940616346114", "7041218318525"))
+#'
+#' is_cnp(a)
+#'
+#' is_cnp(1L:3L)
 cnp <- function(x = character()) {
 
   x <- as.character(x)
@@ -41,7 +52,6 @@ cnp <- function(x = character()) {
   }
 
   validate_cnp(new_cnp(x))
-
 }
 
 #' @export
@@ -49,6 +59,8 @@ format.cnp <- function(x, ...) {
   vctrs::field(x, "cnp")
 }
 
+#' @export
+#' @rdname cnp
 is_cnp <- function(x) {
   inherits(x, "cnp")
 }
